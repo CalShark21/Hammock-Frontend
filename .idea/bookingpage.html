@@ -7,22 +7,34 @@
 </head>
 <body>
     <div class="nav-container">
-        <div class="wrapper">
-            <nav>
-                <div class="logo">
-                    Hammock
-                </div>
-
-                <ul class="nav-items">
-                    <li>
-                        <a href="#">sign in</a>
-                    </li>
-                    <li>
-                        <a href="#">support</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <nav id="nav-bar">
+            <button class="logo-button">hammock</button>
+            <div class="search-bar">
+                <form>
+                    <div class="location-input">
+                        <label>Location</label>
+                        <input type="text" placeholder="Where are you going?">
+                    </div>
+                    <div>
+                        <label>Check in</label>
+                        <input type="text" placeholder="Add date">
+                    </div>
+                    <div>
+                        <label>Check out</label>
+                        <input type="text" placeholder="Add date">
+                    </div>
+                    <div>
+                        <label>Guests</label>
+                        <input type="text" placeholder="Add guests">
+                    </div>
+                    <button type="submit"><img src="images/search-icon.png"></button>
+                </form>
+            </div>
+            <ul class="nav-items">
+                <li><a href="#">Sign in</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </nav>
     </div>
     <hr/>
     <div class="header-container">
