@@ -96,9 +96,20 @@
     <div class="footer-container">
         <header>
             <p> Payment will be handled directly with the property owner</p>
-            <button type="button">Confirm and Book</button>
+            <button data-modal-target="#modal">Confirm and Book</button>
         </header>
     </div>
-<script src= "src/main.js"></script>
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Modal Head</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            This is a body test
+        </div>
+    </div>
+    <div id="overlay"></div>
+<script defer src= "main.js"></script>
 </body>
 </html>
