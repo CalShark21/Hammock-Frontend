@@ -50,6 +50,7 @@ nav{
 }
 .search-bar form{
     display: flex;
+    justify-items: center;
     align-items: center;
     flex-wrap: nowrap;
 }
@@ -114,6 +115,7 @@ nav{
     margin-left: 50px;
 }
 .footer-container button{
+    cursor: pointer;
     color: #FFFF;
     font-size: 18px;
     background: #FF4141;
@@ -139,11 +141,10 @@ nav{
     transform: translate(-50%,-50%) scale(1);
 }
 .modal-header{
-    padding: 10px 15px;
+    padding: 0px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;
 }
 .modal-header .title{
     font-size: 1.25rem;
@@ -152,13 +153,41 @@ nav{
 .modal-header .close-button{
     cursor: pointer;
     border: none;
-    outline: none;
     background: none;
+    outline: none;
     font-size: 1.25rem;
     font-weight: bold;
 }
 .modal-body{
     padding: 10px 15px;
+}
+.modal-body input{
+    width: 95%;
+    border: none;
+}
+.modal-body textarea{
+    height: 200px;
+    width: 95%;
+    resize: none;
+    border: none;
+}
+.modal-body label{
+    opacity: 50%;
+}
+.modal-form{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #008489;
+}
+.modal-body button{
+    margin-right: 10px;
+    float: right;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #008489;
+    border-radius: 10px;
+    font-weight: bold;
 }
 #overlay{
     position: fixed;

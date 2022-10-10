@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Booking Page</title>
-    <link rel = "stylesheet" href="style.css">
+    <link rel = "stylesheet" href="styles.css">
 </head>
 <body>
     <div class="nav-container">
@@ -38,7 +38,7 @@
         <hr/>
     </div>
     <div class="header-container">
-        <button onclick="history.back()"><</button>
+        <button style="cursor: pointer" onclick="history.back()"><</button>
         <h2>Request to book</h2>
     </div>
 
@@ -102,14 +102,31 @@
 
     <div class="modal" id="modal">
         <div class="modal-header">
-            <div class="title">Modal Head</div>
+            <div class="modal-title" style="font-size: 28px">
+                <p>Contact Property Owner</p>
+            </div>
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
-            This is a body test
+            <label style="padding-left: 10px; display: block">Tell the property owner a little bit about yourself and coordinate payment.</label>
+            <form>
+                    <div class="modal-form modal-email">
+                        <label>Email</label><br>
+                        <input type="email"/>
+                    </div>
+                    <div class="modal-form modal-subject">
+                        <label>Subject</label><br>
+                        <input type="text"/>
+                    </div>
+                    <div class="modal-form modal-body">
+                        <label>Body</label><br>
+                        <textarea></textarea>
+                    </div>
+                    <button type="submit">Send</button><br>
+            </form>
         </div>
     </div>
     <div id="overlay"></div>
-<script defer src= "main.js"></script>
+<script defer src= "booking-page.js"></script>
 </body>
 </html>
