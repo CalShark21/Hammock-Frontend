@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posting Page</title>
+    <link rel = "stylesheet" href="styles.css">
+</head>
+<body id="body-posting">
+<div class="nav-container">
+    <nav id="nav-bar">
+        <button class="logo-button">hammock</button>
+        <div id="search-bar" class="alt-search">
+            <form>
+                <div class="location-input">
+                    <label>Location</label>
+                    <input type="text" placeholder="Where are you going?">
+                </div>
+                <div>
+                    <label>Check in</label>
+                    <input type="text" placeholder="Add date">
+                </div>
+                <div>
+                    <label>Check out</label>
+                    <input type="text" placeholder="Add date">
+                </div>
+                <div>
+                    <label>Guests</label>
+                    <input type="text" placeholder="Add guests">
+                </div>
+                <button type="submit"><img src="images/search-icon.png"></button>
+            </form>
+        </div>
+        <ul class="nav-items">
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+    </nav>
+    <hr/>
+</div>
+<div id="posting-dialogue" class="dialogue1">
+    <form>
+        <h3> Post a property</h3>
+        <p>First, lets get some information about what type of property youre posting and where it is located.</p>
+        <input type="text" placeholder="Property Type" required>
+        <input type="text" placeholder="Property address" required>
+        <input type="text" placeholder="Number of Guests" required>
+
+        <div class="btn-posting">
+            <div>
+                <button type="button" style="background: #008489;color: white;">Back</button>
+            </div>
+            <div>
+                <button type="button">Next</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script defer src= "posting-script.js"></script>
+</body>
+</html>
