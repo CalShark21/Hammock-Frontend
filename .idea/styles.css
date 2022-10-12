@@ -211,7 +211,7 @@ body{
 .alt-search label{
     color: white;
 }
-#posting-dialogue{
+.posting-dialogue{
     position: relative;
     border: 1px solid black;
     border-radius: 10px;
@@ -221,21 +221,21 @@ body{
     width: 360px;
     height: 400px;
 }
-#posting-dialogue h3{
+.posting-dialogue h3{
     text-align: center;
     margin-bottom: 40px;
 }
-#posting-dialogue p{
+.posting-dialogue p{
     font-size: 14px;
     opacity: 50%;
 }
-.dialogue1 form{
+.posting-dialogue form{
     width: 280px;
     position: absolute;
     top: 25px;
     left: 40px;
 }
-.dialogue1 form input{
+.posting-dialogue form input{
     width: 100%;
     padding: 10px 5px;
     margin: 5px 0;
@@ -247,13 +247,14 @@ body{
 ::placeholder{
     color: #777;
 }
-.btn-posting{
-    display: flex;
-    justify-content: space-between;
+.posting-btn-box{
+    position: absolute;
+    top: 280px;
+    text-align: center;
     width: 100%;
     margin: 30px auto;
 }
-.dialogue1 form button{
+.posting-dialogue form button{
     width: 85px;
     height: 35px;
     margin: 0 10px;
@@ -261,4 +262,38 @@ body{
     border: 1px solid #008489;
     border-radius: 10px;
     cursor: pointer;
+}
+#form2,#form3,#form4,#form5,#form6{
+    left: 450px;
+}
+.step-row{
+    width: 360px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 5px -1px #000;
+}
+.step-col{
+    width: 120px;
+    text-align: center;
+    color: #333;
+    position: relative;
+}
+#progress{
+   position: absolute;
+    height: 40px;
+    width: 60px;
+    background-color: #008489;
+}
+#progress::after{
+    content: '';
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -19.5px;
+    top: 0;
+    border-left: 20px solid #008489;
 }

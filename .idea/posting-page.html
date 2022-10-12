@@ -29,6 +29,7 @@
                 </div>
                 <button type="submit"><img src="images/search-icon.png"></button>
             </form>
+
         </div>
         <ul class="nav-items">
             <li><a href="#">Account</a></li>
@@ -37,23 +38,92 @@
     </nav>
     <hr/>
 </div>
-<div id="posting-dialogue" class="dialogue1">
-    <form>
+<div class="posting-dialogue">
+    <form id="form1">
         <h3> Post a property</h3>
         <p>First, lets get some information about what type of property youre posting and where it is located.</p>
         <input type="text" placeholder="Property Type" required>
         <input type="text" placeholder="Property address" required>
         <input type="text" placeholder="Number of Guests" required>
 
-        <div class="btn-posting">
+        <div class="posting-btn-box">
+                <button type="button" id="Next1">Next</button>
+        </div>
+    </form>
+    <form id="form2">
+        <h3> Bedroom/Bathroom </h3>
+        <p>Enter some more specific information about your property so you can find the right guests for your space.</p>
+        <input type="text" placeholder="Number of Bedrooms" required>
+        <input type="text" placeholder="Number of Bathrooms" required>
+
+        <div class="posting-btn-box">
             <div>
-                <button type="button" style="background: #008489;color: white;">Back</button>
+                <button type="button" id="Back1" style="background: #008489;color: white;">Back</button>
+                <button type="button" id="Next2">Next</button>
             </div>
+        </div>
+    </form>
+    <form id="form3">
+        <h3> Available Amenities </h3>
+        <p>Which amenities do you offer your guests?</p>
+        <input type="text" placeholder="Amenities" required>
+
+        <div class="posting-btn-box">
             <div>
+                <button type="button" id="Next2" style="background: #008489;color: white;">Back</button>
                 <button type="button">Next</button>
             </div>
         </div>
     </form>
+    <form id="form4">
+        <h3> Upload Photos </h3>
+        <p>Add some photos that show off your space.</p>
+        <input type="image" placeholder="Upload photos" required>
+
+
+        <div class="posting-btn-box">
+            <div>
+                <button type="button" style="background: #008489;color: white;">Back</button>
+                <button type="button">Next</button>
+            </div>
+        </div>
+    </form>
+    <form id="form5">
+        <h3> Add a description </h3>
+        <p>Describe your property to future guests: mention any unique qualities, amenities, or features you think renters will enjoy.</p>
+        <textarea>format later</textarea>
+
+        <div class="posting-btn-box">
+            <div>
+                <button type="button" style="background: #008489;color: white;">Back</button>
+                <button type="button">Next</button>
+            </div>
+        </div>
+    </form>
+    <form id="form6">
+        <h3> Set your price </h3>
+        <p>Set the per-nightly rate for your property (you can always change this later)</p>
+        <input type="text" placeholder="Default Price" required>
+        <input type="text" placeholder="Currency" required>
+
+        <div class="posting-btn-box">
+            <div>
+                <button type="button" style="background: #008489;color: white;">Back</button>
+                <button type="submit">Post</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="step-row">
+        <div id="progress"></div>
+        <div class="step-col"><small>Step 1</small></div>
+        <div class="step-col"><small>Step 2</small></div>
+        <div class="step-col"><small>Step 3</small></div>
+        <div class="step-col"><small>Step 4</small></div>
+        <div class="step-col"><small>Step 5</small></div>
+        <div class="step-col"><small>Step 6</small></div>
+    </div>
+
 </div>
 <script defer src= "posting-script.js"></script>
 </body>
