@@ -214,6 +214,7 @@ body{
 .posting-dialogue{
     width: 360px;
     height: 400px;
+    font-size: 14px;
     margin: 8% auto;
     background: white;
     border: 1px solid black;
@@ -222,12 +223,9 @@ body{
     overflow: hidden;
 }
 .posting-dialogue h3{
+    font-size: 20px;
     text-align: center;
-    margin-bottom: 40px;
-}
-.posting-dialogue p{
-    font-size: 14px;
-    opacity: 50%;
+    margin-bottom: 30px;
 }
 .posting-dialogue form{
     width: 280px;
@@ -236,7 +234,7 @@ body{
     left: 40px;
     transition: 0.5s;
 }
-.posting-dialogue form input{
+.posting-dialogue form input[type=text]{
     width: 100%;
     padding: 10px 5px;
     margin: 5px 0;
@@ -268,7 +266,7 @@ body{
     background-color: #008489;
     color: white;
 }
-#Form2,#Form3,#Form4,#Form5,#Form6{
+#Form1,#Form2,#Form3,#Form5,#Form6{
     left: 450px;
 }
 .step-row{
@@ -302,4 +300,9 @@ body{
     right: -19.5px;
     top: 0;
     border-left: 20px solid #008489;
+}
+.guest-counter .btn-count{
+    text-align: center;
+    width: 20px;
+    height: 20px;
 }

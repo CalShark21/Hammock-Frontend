@@ -69,3 +69,40 @@ Back5.onclick = function (){
     Form6.style.left = "450px";
     progress.style.width = "300px";
 }
+
+function adultClick(click){
+    const totalClicks = document.getElementById('cnt-adult');
+    const sumvalue = parseInt(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+function childClick(click){
+    const totalClicks = document.getElementById('cnt-child');
+    const sumvalue = parseInt(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+function bedClick(click){
+    const totalClicks = document.getElementById('cnt-bed');
+    const sumvalue = parseInt(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+function bathClick(click){
+    const totalClicks = document.getElementById('cnt-bath');
+    const sumvalue = parseFloat(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}

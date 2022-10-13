@@ -41,10 +41,41 @@
 <div class="posting-dialogue">
     <form id="Form1">
         <h3> Post a property</h3>
-        <p>First, lets get some information about what type of property youre posting and where it is located.</p>
-        <input type="text" placeholder="Property Type" required>
-        <input type="text" placeholder="Property address" required>
-        <input type="text" placeholder="Number of Guests" required>
+        <p style="opacity: 50%;">First, lets get some information about what type of property you're posting and where it is located.</p>
+        <div>
+            <label for = "property-selector">Property Type</label><br>
+            <select name = "property-selector" style="font-size: 10px;">
+                <option selected disabled hidden value=""></option>
+                <option value="Hotel">Hotel</option>
+                <option value="Apartment">Apartment</option>
+                <option value="House">House</option>
+                <option value="Condo">Condo</option>
+                <option value="Hostel">Hostel</option>
+            </select>
+        </div>
+        <div>
+            <label for="prop-ad">Property Address</label><br>
+            <input name="prop-ad" type="text" placeholder="Property address">
+        </div>
+        <div>
+            <div style="width: 20%;float: left;">Guests:</div>
+            <div class="guest-counters" style="width: 80%;float: right;">
+                <div class="guest-counter" align="right">
+                    <label> Adults:
+                        <button type="button" class="btn-count" onclick="adultClick(-1)">-</button>
+                    </label>
+                    <span id="cnt-adult">0</span>
+                    <button type="button" class="btn-count" onclick="adultClick(1)">+</button>
+                </div>
+                <div class="guest-counter" align="right">
+                    <label> Children:
+                        <button type="button" class="btn-count" onclick="childClick(-1)">-</button>
+                    </label>
+                    <span id="cnt-child">0</span>
+                    <button type="button" class="btn-count" onclick="childClick(1)">+</button>
+                </div>
+            </div>
+        </div>
 
         <div class="posting-btn-box">
                 <button type="button" id="Next1">Next</button>
@@ -53,8 +84,25 @@
     <form id="Form2">
         <h3> Bedroom/Bathroom </h3>
         <p>Enter some more specific information about your property so you can find the right guests for your space.</p>
-        <input type="text" placeholder="Number of Bedrooms" required>
-        <input type="text" placeholder="Number of Bathrooms" required>
+
+        <div class="guest-counters" align="center">
+            <div class="guest-counter">
+                <div style="width: 50%; float: left">Number of Beds:</div>
+                <div style="width: 50%; float: right">
+                    <button type="button" class="btn-count" onclick="bedClick(-1)">-</button>
+                    <span id="cnt-bed">0</span>
+                    <button type="button" class="btn-count" onclick="bedClick(1)">+</button>
+                </div>
+            </div>
+            <div class="guest-counter">
+                <div style="width: 50%; float: left;">Number of Baths:</div>
+                <div style="width: 50%; float: right;">
+                    <button type="button" class="btn-count" onclick="bathClick(-0.5)">-</button>
+                    <span id="cnt-bath">0</span>
+                    <button type="button" class="btn-count" onclick="bathClick(0.5)">+</button>
+                </div>
+            </div>
+        </div>
 
         <div class="posting-btn-box">
             <div>
@@ -66,8 +114,49 @@
     <form id="Form3">
         <h3> Available Amenities </h3>
         <p>Which amenities do you offer your guests?</p>
-        <input type="text" placeholder="Amenities" required>
+            <ul style="list-style: none ">
+                <li>
+                    <input type="checkbox" id="free-breakfast" value="free-breakfast" required>
+                    <label for="free-breakfast">Free Breakfast</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="free-wifi" value="free-wifi" required>
+                    <label for="free-wifi">Free Wifi</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="free-parking" value="free-parking" required>
+                    <label for="free-parking">Free Parking</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="iron" value="iron" required>
+                    <label for="iron">Iron</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="pet-friendly" value="pet-friendly" required>
+                    <label for="pet-friendly">Pet Friendly</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="soap" value="soap" required>
+                    <label for="soap">Soap and Shampoo</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="coffee" value="coffee" required>
+                    <label for="coffee">Coffee and Tea</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="a/c" value="a/c" required>
+                    <label for="a/c">Air Conditioning</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="pool" value="pool" required>
+                    <label for="pool">Pool</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="laundry" value="laundry" required>
+                    <label for="laundry">Washer and Dryer</label>
+                </li>
 
+            </ul>
         <div class="posting-btn-box">
             <div>
                 <button type="button" id="Back2" class="btn-back">Back</button>
@@ -123,7 +212,6 @@
         <div class="step-col"><small>Step 5</small></div>
         <div class="step-col"><small>Step 6</small></div>
     </div>
-
 </div>
 <script defer src= "posting-script.js"></script>
 </body>
