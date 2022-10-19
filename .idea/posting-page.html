@@ -45,7 +45,7 @@
         <div>
             <label for = "property-selector">Property Type</label><br>
             <select name = "property-selector" style="font-size: 10px;">
-                <option selected disabled hidden value=""></option>
+                <option selected disabled hidden value="">--Select--</option>
                 <option value="Hotel">Hotel</option>
                 <option value="Apartment">Apartment</option>
                 <option value="House">House</option>
@@ -167,7 +167,8 @@
     <form id="Form4">
         <h3> Upload Photos </h3>
         <p>Add some photos that show off your space.</p>
-        <input type="image" placeholder="Upload photos" required>
+        <input type="file" name="input_file" multiple required>
+
 
 
         <div class="posting-btn-box">
@@ -179,8 +180,8 @@
     </form>
     <form id="Form5">
         <h3> Add a description </h3>
-        <p>Describe your property to future guests: mention any unique qualities, amenities, or features you think renters will enjoy.</p>
-        <textarea>format later</textarea>
+        <p style="opacity: 50%;">Describe your property to future guests. Mention any unique qualities, amenities, or features you think renters will enjoy.</p>
+        <textarea placeholder="Enter description here"></textarea>
 
         <div class="posting-btn-box">
             <div>
@@ -191,9 +192,18 @@
     </form>
     <form id="Form6">
         <h3> Set your price </h3>
-        <p>Set the per-nightly rate for your property (you can always change this later)</p>
-        <input type="text" placeholder="Default Price" required>
-        <input type="text" placeholder="Currency" required>
+        <p style="opacity: 50%;">Set the per-nightly rate for your property (you can always change this later)</p>
+        <label for="price">Default Price</label>
+        <input type="text" name="price" placeholder="Default Price" required>
+        <label for = "currency">Currency</label><br>
+        <select name = "currency" style="font-size: 10px;">
+            <option selected disabled hidden value="">--Select--</option>
+            <option value="USD">USD</option>
+            <option value="CAD">CAD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+            <option value="AUS">AUS</option>
+        </select>
 
         <div class="posting-btn-box">
             <div>
