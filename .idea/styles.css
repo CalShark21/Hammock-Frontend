@@ -313,18 +313,60 @@ body{
     border-radius: 5px;
     border-color: #008489;
 }
+.prop-dash-header{
+    margin-bottom: 40px;
+}
+
 #property-card{
+    margin-left: 3%;
+    height: 150px;
+    width: 600px;
+}
+#property-card a{
+    color: black;
+    text-decoration: none;
+}
+.btn-post-new{
+    justify-content: center;
+    text-decoration: none;
+    margin: 20px;
+    width: 125px;
+    height: 40px;
+    background-color: #008489;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+}
+.card-body{
     display: flex;
+    width: 100%;
+}
+.card-text{
+    width: 100%;
 }
 #property-card hr{
-    width: 50%;
+    width: 500px;
     margin-left: 0;
     border-color: #008489;
     opacity: 25%;
 }
 #property-card img{
-    border-radius: 10px;
-    padding: 5px;
+    border-radius: 15px;
+    margin-right: 10px;
     width: 150px;
-
+}
+.card-description{
+    resize: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    opacity: 50%;
+}
+.card-amenities{
+    outline: none;
+    border: none;
+    resize: none;
+    width: 100%;
 }
