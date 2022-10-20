@@ -44,18 +44,18 @@
         <p style="opacity: 50%;">First, lets get some information about what type of property you're posting and where it is located.</p>
         <div>
             <label for = "property-selector">Property Type</label><br>
-            <select name = "property-selector" style="font-size: 10px;">
+            <div class="custom-select" style="width: 100%"><select name = "property-selector">
                 <option selected disabled hidden value="">--Select--</option>
                 <option value="Hotel">Hotel</option>
                 <option value="Apartment">Apartment</option>
                 <option value="House">House</option>
                 <option value="Condo">Condo</option>
                 <option value="Hostel">Hostel</option>
-            </select>
+            </select></div>
         </div>
         <div>
-            <label for="prop-ad">Property Address</label><br>
-            <input name="prop-ad" type="text" placeholder="Property address">
+            <label for="prop-ad">Property Location</label><br>
+            <input name="prop-ad" type="text" placeholder="Enter state">
         </div>
         <div>
             <div style="width: 20%;float: left;">Guests:</div>
@@ -166,9 +166,16 @@
     </form>
     <form id="Form4">
         <h3> Upload Photos </h3>
-        <p>Add some photos that show off your space.</p>
-        <input type="file" name="input_file" multiple required>
-
+        <div>
+            <h4>Main Photo</h4>
+            <p>This is the primary photo that will be used for your listing, it is the first image people will see of your place.</p>
+            <input type="file" name="input-file-main" required>
+        </div>
+        <div>
+            <h4>Additional Photos</h4>
+            <p>Add up to 4 additional photos that show off your place when users click on your listing.</p>
+        <input type="file" name="input-file-side" multiple required>
+        </div>
 
 
         <div class="posting-btn-box">
@@ -194,7 +201,7 @@
         <h3> Set your price </h3>
         <p style="opacity: 50%;">Set the per-nightly rate for your property (you can always change this later)</p>
         <label for="price">Default Price</label>
-        <input type="text" name="price" placeholder="Default Price" required>
+        <input type="text" name="price" placeholder="Dollar amount per day" required>
         <label for = "currency">Currency</label><br>
         <select name = "currency" style="font-size: 10px;">
             <option selected disabled hidden value="">--Select--</option>

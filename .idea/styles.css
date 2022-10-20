@@ -211,6 +211,7 @@ body{
 .alt-search label{
     color: white;
 }
+/** Posting Page **/
 .posting-dialogue{
     width: 360px;
     height: 400px;
@@ -239,9 +240,20 @@ body{
     padding: 10px 5px;
     margin: 5px 0;
     border: 0;
-    border-bottom: 1px solid black;
+    border: 1px solid rgba(0, 132, 137,0.7);
+    border-radius: 5px;
+    background-color: rgba(1, 211, 219,0.15);
+}
+
+.posting-dialogue form select{
+    cursor: pointer;
+    font-size: 10px;
+    width: 100%;
+    padding: 10px 5px;
+    margin: 5px 0;
+    border: 0;
+    background-color: rgba(1, 211, 219,0.15);
     outline: none;
-    background-color: transparent;
 }
 ::placeholder{
     color: #777;
@@ -305,6 +317,14 @@ body{
     text-align: center;
     width: 20px;
     height: 20px;
+}
+#Form4 h4{
+    margin-bottom: 0;
+}
+#Form4 p{
+    margin-top: 0;
+    opacity: 50%;
+    font-size: 12px;
 }
 #Form5 textarea{
     width: 100%;
