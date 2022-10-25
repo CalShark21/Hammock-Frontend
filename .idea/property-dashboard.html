@@ -19,40 +19,89 @@
 </div>
 <div class="prop-dash-header" align="center"><h2>Your Dashboard</h2></div>
 <button class="btn-post-new" type="submit" onclick="window.location= 'posting-page.html'">+ Post new listing</button>
-<h3 style="margin-left: 3%">Properties</h3>
-<div id="property-card">
-    <div class="card-body">
-        <a href="//www.google.com/"><div class="card-pics">
-                <img src="images/hostel2.png" alt="Property Pic">
-            </div></a>
-        <div class="card-text" style="font-size: 12px;">
-                <div style="font: 16px bold;">Hostel Villa</div>
-                <div style="opacity: 50%;">1 guest - Shared bedroom - 1 bed - 1 shared bath</div>
-                <div><textarea class="card-description" maxlength="160" readonly>The house is located in a typical Tuscan rural village, offering ample space for sharing inside and out, giving guests the opportunity to fully experienc...</textarea></div>
-                <div ><textarea class="card-amenities" max maxlength="80">Free Wifi, Free parking, Laundry/dryer, Kitchen utilities, Pet friendly, free...</textarea></div>
-
+<div id="post-dash-body">
+    <div class="property-cards">
+        <h3 style="margin-left: 3%">Properties</h3>
+        <div id="property-card">
+            <div class="card-body">
+                <a href="//www.google.com/"><div class="card-pics">
+                    <img src="images/hostel2.png" alt="Property Pic">
+                </div></a>
+                <div class="card-text" style="font-size: 12px;">
+                    <div style="font: 16px bold;">Hostel Villa</div>
+                    <div style="opacity: 50%;">1 guest-1 bed-1 bath</div>
+                    <div><textarea class="card-description" maxlength="160" readonly>The house is located in a typical Tuscan rural village, offering ample space for sharing inside and out, giving guests the opportunity to fully experienc...</textarea></div>
+                    <div ><textarea class="card-amenities" max maxlength="80">Free Wifi, Free parking, Laundry/dryer, Kitchen utilities, Pet friendly, free...</textarea></div>
+                </div>
+                <div class="card-buttons">
+                    <button onclick="propertyDropdown()" class="property-dropdown">...</button>
+                    <div id="propDropdown" class="prop-dropdown-content">
+                        <a data-modal-target="#modal">Edit Listing</a>
+                        <a data-modal-target="#modal" style="color: red">Delete Listing</a>
+                    </div>
+                </div>
             </div>
-        <div class="card-buttons">
-            <button type="submit">...</button>
-        </div></div>
-    <hr/>
-</div>
-<div id="property-card">
-    <div class="card-body">
-        <a href="//www.google.com/"><div class="card-pics">
-            <img src="images/hostel2.png" alt="Property Pic">
-        </div></a>
-        <div class="card-text" style="font-size: 12px;">
-            <div style="font: 16px bold;">Hostel Villa</div>
-            <div style="opacity: 50%;">1 guest - Shared bedroom - 1 bed - 1 shared bath</div>
-            <div><textarea class="card-description" maxlength="156" readonly>The house is located in a typical Tuscan rural village, offering ample space for sharing inside and out, giving guests the opportunity to fully experienc...</textarea></div>
-            <div ><textarea class="card-amenities">Free Wifi, Free parking, Laundry/dryer, Kitchen utilities, Pet friendly, free...</textarea></div>
+            <hr/>
+        </div>
+    </div>
+    <div class="account-info">
+        <div class="account-box">
+            <h3 align="center">Edit Account Info</h3>
+            <form>
+                <div class="account-field">
+                    <label for="edit-name">Full Name</label>
+                    <input name="edit-name" type="text" placeholder="Enter Full Name">
+                </div>
+                <div class="account-field">
+                    <label for="edit-email">New Email address</label>
+                    <input name="edit-email" type="email" placeholder="Enter Email Address">
+                </div>
+                <div class="account-field">
+                    <label for="edit-password">New Password</label>
+                    <input name="edit-password" type="text" placeholder="Enter New Password">
+                </div>
+                <div class="account-field">
+                    <label for="edit-password">Reenter new password</label>
+                    <input name="edit-password" type="text" placeholder="Please reenter New Password">
+                </div>
+                <div class="account-box-btns">
+                    <button type="reset">Reset</button>
+                    <button type="submit">Update</button>
+                </div>
+            </form>
 
         </div>
-        <div class="card-buttons">
-            <button type="submit">...</button>
-        </div></div>
-    <hr/>
+
+    </div>
 </div>
+<div class="modal" id="modal">
+    <div class="modal-header">
+        <div class="modal-title" style="font-size: 28px">
+            <p>Contact Property Owner</p>
+        </div>
+        <button data-close-button class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+        <label style="padding-left: 10px; display: block">Tell the property owner a little bit about yourself and coordinate payment.</label>
+        <form>
+            <div class="modal-form modal-email">
+                <label>Email</label><br>
+                <input type="email"/>
+            </div>
+            <div class="modal-form modal-subject">
+                <label>Subject</label><br>
+                <input type="text"/>
+            </div>
+            <div class="modal-form modal-body">
+                <label>Body</label><br>
+                <textarea></textarea>
+            </div>
+            <button type="submit">Send</button><br>
+        </form>
+    </div>
+</div>
+<div id="overlay"></div>
+
+<script src= "property-dash-script.js"></script>
 </body>
 </html>

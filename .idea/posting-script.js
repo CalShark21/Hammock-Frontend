@@ -70,8 +70,8 @@ Back5.onclick = function (){
     progress.style.width = "300px";
 }
 
-function adultClick(click){
-    const totalClicks = document.getElementById('cnt-adult');
+function guestClick(click){
+    const totalClicks = document.getElementById('cnt-guest');
     const sumvalue = parseInt(totalClicks.innerText) + click;
     console.log(sumvalue + click);
     totalClicks.innerText = sumvalue;
@@ -79,15 +79,7 @@ function adultClick(click){
         totalClicks.innerText = 0;
     }
 }
-function childClick(click){
-    const totalClicks = document.getElementById('cnt-child');
-    const sumvalue = parseInt(totalClicks.innerText) + click;
-    console.log(sumvalue + click);
-    totalClicks.innerText = sumvalue;
-    if(sumvalue < 0){
-        totalClicks.innerText = 0;
-    }
-}
+
 function bedClick(click){
     const totalClicks = document.getElementById('cnt-bed');
     const sumvalue = parseInt(totalClicks.innerText) + click;

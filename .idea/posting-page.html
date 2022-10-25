@@ -17,11 +17,11 @@
                 </div>
                 <div>
                     <label>Check in</label>
-                    <input type="text" placeholder="Add date">
+                    <input type="date" placeholder="Add date">
                 </div>
                 <div>
                     <label>Check out</label>
-                    <input type="text" placeholder="Add date">
+                    <input type="date" placeholder="Add date">
                 </div>
                 <div>
                     <label>Guests</label>
@@ -41,7 +41,11 @@
 <div class="posting-dialogue">
     <form id="Form1">
         <h3> Post a property</h3>
-        <p style="opacity: 50%;">First, lets get some information about what type of property you're posting and where it is located.</p>
+        <p>First, lets get some basic information about your property.</p>
+        <div>
+            <label for="prop-ad">Property Name</label><br>
+            <input name="prop-ad" type="text" placeholder="Give your property a nice title">
+        </div>
         <div>
             <label for = "property-selector">Property Type</label><br>
             <div class="custom-select" style="width: 100%"><select name = "property-selector">
@@ -57,35 +61,30 @@
             <label for="prop-ad">Property Location</label><br>
             <input name="prop-ad" type="text" placeholder="Enter state">
         </div>
-        <div>
-            <div style="width: 20%;float: left;">Guests:</div>
-            <div class="guest-counters" style="width: 80%;float: right;">
-                <div class="guest-counter" align="right">
-                    <label> Adults:
-                        <button type="button" class="btn-count" onclick="adultClick(-1)">-</button>
-                    </label>
-                    <span id="cnt-adult">0</span>
-                    <button type="button" class="btn-count" onclick="adultClick(1)">+</button>
-                </div>
-                <div class="guest-counter" align="right">
-                    <label> Children:
-                        <button type="button" class="btn-count" onclick="childClick(-1)">-</button>
-                    </label>
-                    <span id="cnt-child">0</span>
-                    <button type="button" class="btn-count" onclick="childClick(1)">+</button>
-                </div>
-            </div>
-        </div>
+
 
         <div class="posting-btn-box">
                 <button type="button" id="Next1">Next</button>
         </div>
     </form>
     <form id="Form2">
-        <h3> Bedroom/Bathroom </h3>
+        <h3> About Your Property </h3>
         <p>Enter some more specific information about your property so you can find the right guests for your space.</p>
+        <div align="center">
+            <div>
 
+            </div>
+
+        </div>
         <div class="guest-counters" align="center">
+            <div class="guest-counter">
+                <div style="width: 50%; float: left">Number of Guests:</div>
+                <div style="width: 50%; float: right">
+                    <button type="button" class="btn-count" onclick="guestClick(-1)">-</button>
+                    <span id="cnt-guest">0</span>
+                    <button type="button" class="btn-count" onclick="guestClick(1)">+</button>
+                </div>
+            </div><br><br>
             <div class="guest-counter">
                 <div style="width: 50%; float: left">Number of Beds:</div>
                 <div style="width: 50%; float: right">
@@ -93,7 +92,7 @@
                     <span id="cnt-bed">0</span>
                     <button type="button" class="btn-count" onclick="bedClick(1)">+</button>
                 </div>
-            </div>
+            </div><br><br>
             <div class="guest-counter">
                 <div style="width: 50%; float: left;">Number of Baths:</div>
                 <div style="width: 50%; float: right;">
@@ -230,6 +229,6 @@
         <div class="step-col"><small>Step 6</small></div>
     </div>
 </div>
-<script defer src= "posting-script.js"></script>
+<script src= "posting-script.js"></script>
 </body>
 </html>
