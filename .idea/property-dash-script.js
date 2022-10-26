@@ -31,7 +31,7 @@ openModalButtons.forEach(button => {
 })
 
 overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.modal.active')
+    const modals = document.querySelectorAll('.modal-edit.active,.modal-delete.active')
     modals.forEach(modal => {
         closeModal(modal)
     })
@@ -39,7 +39,7 @@ overlay.addEventListener('click', () => {
 
 closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const modal = button.closest('.modal')
+        const modal = button.closest('.modal-edit,.modal-delete')
         closeModal(modal)
     } )
 })
@@ -55,3 +55,47 @@ function closeModal(modal){
     modal.classList.remove('active')
     overlay.classList.remove('active')
 }
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    });
+}
+function guestClick(click){
+    const totalClicks = document.getElementById('cnt-guest');
+    const sumvalue = parseInt(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+
+function bedClick(click){
+    const totalClicks = document.getElementById('cnt-bed');
+    const sumvalue = parseInt(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+function bathClick(click){
+    const totalClicks = document.getElementById('cnt-bath');
+    const sumvalue = parseFloat(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+

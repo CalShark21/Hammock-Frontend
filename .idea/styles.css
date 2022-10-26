@@ -1,7 +1,7 @@
-/* Booking Page */
 body{
     font-family: "Helvetica Neue";
 }
+/* Navigation Bar */
 #nav-bar{
     display: flex;
     align-items: center;
@@ -79,7 +79,7 @@ body{
 #search-bar form label{
     font-weight: 600;
 }
-
+/* Booking Page */
 .middle{
     display: flex;
     margin-left: 50px;
@@ -123,6 +123,7 @@ body{
 }
 
 /** Modal **/
+
 .modal{
     position: fixed;
     top: 50%;
@@ -211,7 +212,6 @@ body{
 .alt-search label{
     color: white;
 }
-/** Posting Page **/
 .posting-dialogue{
     width: 360px;
     height: 400px;
@@ -320,6 +320,9 @@ body{
     width: 20px;
     height: 20px;
 }
+#Form3 li{
+    display: flex;
+}
 #Form4 h4{
     margin-bottom: 0;
 }
@@ -342,11 +345,16 @@ body{
 #post-dash-body{
     display: flex;
 }
-.property-cards{
-    width: 65%;
+#property-cards{
+    width: 800px;
+    list-style: none;
 }
 .account-info{
-    width: 35%;
+    position: absolute;
+    top: 20%;
+    left: 70%;
+    overflow: hidden;
+    width: 500px;
 }
 .account-info form input[type=text],input[type=email]{
     font-size: 12px;
@@ -470,3 +478,153 @@ body{
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+/* Edit Listing Modal */
+
+.modal-edit{
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+.modal-edit.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+.modal-edit-header{
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-edit-header .title{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.modal-edit-header .close-button{
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.modal-edit-body{
+    padding: 10px 15px;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+.modal-edit-body input[type=text]{
+    font-size: 12px;
+    width: 90%;
+    padding: 10px 5px;
+    margin: 5px 0;
+    border: 1px solid rgba(0, 132, 137,0.7);
+    border-radius: 5px;
+    background-color: white;
+}
+.modal-edit-body form select{
+    cursor: pointer;
+    font-size: 10px;
+    width: 93%;
+    padding: 10px 5px;
+    margin: 5px 0;
+    border: 0;
+    background-color: rgba(1, 211, 219,0.15);
+    outline: none;
+}
+.modal-edit-body li{
+    display: flex;
+}
+.modal-edit-body textarea{
+    height: 200px;
+    width: 95%;
+    resize: none;
+    border: 1px solid rgba(0, 132, 137,0.7);
+    border-radius: 10px;
+}
+.modal-edit-body button{
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #008489;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.modal-edit-body .guest-counters{
+    height: 100px;
+}
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+
+.modal-delete{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+.modal-delete.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+.modal-delete-header{
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-delete-header .title{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.modal-delete-header .close-button{
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.modal-delete-body{
+    padding: 10px 15px;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+.delete-button{
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
