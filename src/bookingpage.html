@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Page</title>
+    <link rel = "stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="nav-container">
+        <nav id="nav-bar">
+            <button class="logo-button">hammock</button>
+            <div id="search-bar">
+                <form>
+                    <div class="location-input">
+                        <label>Location</label>
+                        <input type="text" placeholder="Where are you going?">
+                    </div>
+                    <div>
+                        <label>Check in</label>
+                        <input type="date" placeholder="Add date">
+                    </div>
+                    <div>
+                        <label>Check out</label>
+                        <input type="date" placeholder="Add date">
+                    </div>
+                    <div>
+                        <label>Guests</label>
+                        <input type="text" placeholder="Add guests">
+                    </div>
+                    <button type="submit"><img src="../images/search-icon.png"></button>
+                </form>
+            </div>
+            <ul class="nav-items">
+                <li><a href="#">Sign in</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </nav>
+        <hr/>
+    </div>
+    <div class="header-container">
+        <button style="cursor: pointer" onclick="history.back()"><</button>
+        <h2>Request to book</h2>
+    </div>
+    <div class="middle">
+        <div class="details-container">
+            <hr/>
+            <header>
+                <h2>Trip Details</h2>
+                <br>
+                <div class="dates">
+                    <h3>Dates</h3>
+                    <p>Oct 30-Nov 4</p>
+                </div>
+                <div class="guests">
+                    <h3>Number of Guests</h3>
+                    <p>2 Guests</p>
+                </div>
+            </header>
+            <hr/>
+        </div>
+        <div class="boxed">
+            <div class="box-top">
+                <img src="../images/house1.png" alt="house pic">
+                <div class="top-text">
+                    <header>
+                        <p style="font-size: 16px;font-weight: 400;">Tiny Home (Lombardo, Italy)</p>
+                        <p style="font-size: 12px;color: rgba(0,0,0,0.5);">4 Guests-2 Bedrooms-2 Beds-1 Bath</p>
+                    </header>
+
+                </div>
+            </div>
+            <hr/>
+            <h2>Cost Details</h2>
+            <div class="box-body">
+                <div class="box-body-left">
+                        <p>$105 x 5 nights </p>
+                        <p>Cleaning Fee</p>
+                        <p>Service Fee </p>
+                        <p>Occupancy Fee </p>
+                    </div>
+                <div class="box-body-right">
+                        <p>$525.00 </p>
+                        <p>$100.00</p>
+                        <p>$75.00 </p>
+                        <p>$105.00 </p>
+                    </div>
+            </div>
+            <hr/>
+            <div style="display: flex;justify-content: space-between;">
+                <p style="font-weight: 600;"> Total(USD)</p>
+                <p>$805.00</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container">
+        <header>
+            <p> Payment will be handled directly with the property owner</p>
+            <button data-modal-target="#modal">Confirm and Book</button>
+        </header>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="modal-title" style="font-size: 28px">
+                <p>Contact Property Owner</p>
+            </div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <label style="padding-left: 10px; display: block">Tell the property owner a little bit about yourself and coordinate payment.</label>
+            <form>
+                    <div class="modal-form modal-email">
+                        <label>Email</label><br>
+                        <input type="email"/>
+                    </div>
+                    <div class="modal-form modal-subject">
+                        <label>Subject</label><br>
+                        <input type="text"/>
+                    </div>
+                    <div class="modal-form modal-body">
+                        <label>Body</label><br>
+                        <textarea></textarea>
+                    </div>
+                    <button type="submit">Send</button><br>
+            </form>
+        </div>
+    </div>
+    <div id="overlay"></div>
+<script defer src= "booking-page.js"></script>
+</body>
+</html>
