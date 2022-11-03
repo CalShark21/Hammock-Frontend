@@ -667,5 +667,30 @@ body{
     margin-right: -50%;
     margin-right: -50%;
     transform: translate(50%, -150%)
+}
+.btn-group {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    position: relative;
+    transform: translate(150%, 50%);
 
+
+}
+.btn-group button {
+    width: 205px;
+    height: 48px;
+    font-size: 18px;
+    background-color: #FFFFF;
+    border-radius: 22px;
+    border: 2px #008489;
+    color: black;
+    padding: 10px 32px;
+    margin: 10px;
+    cursor: pointer;
+    justify-content: center;
+}
+.btn-group button:hover {
+    background-color: #008489;
+    color: white;
 }
