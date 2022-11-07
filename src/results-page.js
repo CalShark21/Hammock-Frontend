@@ -1,4 +1,50 @@
 
+// Our JSON object containing returned objects from search, currently just returns all objects in database
+
+const propData = {
+    "title": "Italian Villa",
+    "id": "1234",
+    "description": "this is a fake description",
+    "type": "Apartment",
+    "location": "Rhode Island",
+    "guests": 5,
+    "beds": 1,
+    "baths": 3,
+    "amenities": "free coffee",
+    "price": 180
+}
+
+document.getElementById("card-container").innerHTML = `
+<h1 id="heading">Results for stays in ${propData.location}</h1>
+    <div class="card" onclick="window.location= 'property-detailed.html'">
+        <div class="card-image" style="background-image: url('/images/card-main-1234.jpg')"></div>
+        <h2>${propData.title}</h2>
+        <p>${propData.guests} guests - ${propData.beds} bedrooms - ${propData.baths} baths</p>
+        <h3 class="price">${propData.price}</h3>
+    </div>
+`;
+
+
+
+/*
+add this into ul class = "property-cards"{
+    for(int i = 0; i < jsonList.length; i++){
+        buildHTMLCard(cardValues[i]);
+    }
+}
+
+function buildHTMLCard(currentCard){
+    insert this HTML{
+        <li>
+            <div class="card" onclick="window.location = 'property-detailed.html'">
+                <div class="card-image main-img-{id}"></div>
+                <h2>{title}</h2>
+                <p>``{guest} guests - {bed} beds - {bath} bath``</p>
+                <h3 class="price">``${price}``</h3>
+            </div>
+        </li>
+    }
+*/
 const rangeInput = document.querySelectorAll(".range-input input"),
     priceInput = document.querySelectorAll(".price-input input"),
     progress = document.querySelector(".slider .progress");
