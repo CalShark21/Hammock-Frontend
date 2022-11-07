@@ -133,34 +133,39 @@
             </div>
 
         </section>
-        <section class="card-container">
+        <section id="card-container">
             <h1 id="heading">Results for stays in Italy</h1>
-            <div class="card" onclick="window.location= 'property-detailed.html'">
-                <div class="card-image card-1"></div>
-                <h2>Hotel 1</h2>
-                <p>4 guests - 2 bedrooms - 2 beds - 1 bath</p>
-                <h3 class="price">$105</h3>
-            </div>
-            <div class="card" onclick="window.location= 'property-detailed.html'">
+            <ul class="property-cards" style="list-style: none">
+                <!--
+                <li>
+                    <div class="card" onclick="window.location= 'property-detailed.html'">
+                        <div class="card-image" style="background-image: url('/images/card-main-1234.jpg')"></div>
+                        <h2>Hotel 1</h2>
+                        <p>4 guests - 2 bedrooms - 2 beds - 1 bath</p>
+                        <h3 class="price">$105</h3>
+                    </div>
+                </li>
+                <li><div class="card" onclick="window.location= 'property-detailed.html'">
                 <div class="card-image card-2"></div>
                 <h2>Hotel 2</h2>
                 <p>4 guests - 2 bedrooms - 2 beds - 1 bath
                 </p>
                 <h3 class="price">$90</h3>
-            </div>
-            <div class="card" onclick="window.location= 'property-detailed.html'">
+            </div></li>
+                <li><div class="card" onclick="window.location= 'property-detailed.html'">
                 <div class="card-image card-3"></div>
                 <h2>Hotel 3</h2>
                 <p>4 guests - 2 bedrooms - 2 beds - 1 bath
                 </p>
                 <h3 class="price">$85</h3>
-            </div>
-
+            </div></li>
+                -->
+            </ul>
         </section>
 
     </main>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="results-page.js"></script>
-
 </body>
 </html>
