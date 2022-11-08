@@ -1,28 +1,71 @@
 
 // Our JSON object containing returned objects from search, currently just returns all objects in database
 
-const propData = {
-    "title": "Italian Villa",
-    "id": "1234",
-    "description": "this is a fake description",
-    "type": "Apartment",
-    "location": "Rhode Island",
-    "guests": 5,
-    "beds": 1,
-    "baths": 3,
-    "amenities": "free coffee",
-    "price": 180
-}
-
-document.getElementById("card-container").innerHTML = `
-<h1 id="heading">Results for stays in ${propData.location}</h1>
+const propData = [
+    {
+        "title": "Italian Villa",
+        "id": "1234",
+        "description": "this is a fake description",
+        "type": "Condo",
+        "location": "Rhode Island",
+        "guests": 5,
+        "beds": 1,
+        "baths": 3,
+        "mainPhoto": "villa-main.jpg",
+        "amenities": "free coffee",
+        "price": 180
+    },
+    {
+        "title": "Cozy Cottage",
+        "id": "12345",
+        "description": "this is a fake description part 2",
+        "type": "House",
+        "location": "New Hampshire",
+        "guests": 4,
+        "beds": 2,
+        "baths": 1.5,
+        "mainPhoto": "villa-main.jpg",
+        "amenities": "free wifi",
+        "price": 220
+    },
+    {
+        "title": "Tilted Towers",
+        "id": "123456",
+        "description": "this is a fake description part 2",
+        "type": "House",
+        "location": "New Donk City",
+        "guests": 10,
+        "beds": 4,
+        "baths": 2,
+        "mainPhoto": "villa-main.jpg",
+        "amenities": "free sha va ca doo",
+        "price": 250
+    }
+]
+/*
+template for div
     <div class="card" onclick="window.location= 'property-detailed.html'">
-        <div class="card-image" style="background-image: url('/images/card-main-1234.jpg')"></div>
+        <div class="card-image" style="background-image: url('/images/villa-main.jpg')"></div>
         <h2>${propData.title}</h2>
         <p>${propData.guests} guests - ${propData.beds} bedrooms - ${propData.baths} baths</p>
         <h3 class="price">${propData.price}</h3>
     </div>
-`;
+ */
+
+function propertyTemplate(property){
+    return `
+        <div class="card" onclick="window.location= 'property-detailed.html'">
+            <div class="card-image" style="background-image: url('/images/properties/${property.id}/${property.mainPhoto}')"></div>
+            <h2>${property.title}</h2>
+            <p>${property.guests} guests - ${property.beds} bedrooms - ${property.baths} baths</p>
+            <h3 class="price">${property.price}</h3>
+        </div>
+    `
+}
+document.getElementById("card-container").innerHTML = `
+<h1 id="heading">Results for stays in ${propData.location}</h1>
+${propData.map(propertyTemplate).join('')} 
+`
 
 
 
