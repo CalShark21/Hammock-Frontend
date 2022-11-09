@@ -1,6 +1,8 @@
 
 // Our JSON object containing returned objects from search, currently just returns all objects in database
 
+/* -- Fake API data --
+
 const propData = [
     {
         "title": "Italian Villa",
@@ -11,9 +13,10 @@ const propData = [
         "guests": 5,
         "beds": 1,
         "baths": 3,
-        "mainPhoto": "villa-main.jpg",
         "amenities": "free coffee",
-        "price": 180
+        "price": 180,
+        "main_photo": "villa-main.jpg",
+        "side_photo": "villa-main.jpg"
     },
     {
         "title": "Cozy Cottage",
@@ -24,9 +27,10 @@ const propData = [
         "guests": 4,
         "beds": 2,
         "baths": 1.5,
-        "mainPhoto": "villa-main.jpg",
         "amenities": "free wifi",
-        "price": 220
+        "price": 220,
+        "main_photo": "villa-main.jpg",
+        "side_photo": "villa-main.jpg"
     },
     {
         "title": "Tilted Towers",
@@ -37,13 +41,16 @@ const propData = [
         "guests": 10,
         "beds": 4,
         "baths": 2,
-        "mainPhoto": "villa-main.jpg",
         "amenities": "free sha va ca doo",
-        "price": 250
+        "price": 250,
+        "main_photo": "villa-main.jpg",
+        "side_photo": "villa-main.jpg"
     }
 ]
-/*
-template for div
+*/
+
+
+/* -- Template for Div --
     <div class="card" onclick="window.location= 'property-detailed.html'">
         <div class="card-image" style="background-image: url('/images/villa-main.jpg')"></div>
         <h2>${propData.title}</h2>
@@ -52,42 +59,29 @@ template for div
     </div>
  */
 
+var propData;
+
+fetch('http://localhost:8080/api/properties')
+    .then( res => res.json())
+    .then( data => buildCards(data))
+
+
 function propertyTemplate(property){
     return `
         <div class="card" onclick="window.location= 'property-detailed.html'">
-            <div class="card-image" style="background-image: url('/images/properties/${property.id}/${property.mainPhoto}')"></div>
+            <div class="card-image" style="background-image: url('/images/properties/${property.main_photo}.jpg')"></div>
             <h2>${property.title}</h2>
             <p>${property.guests} guests - ${property.beds} bedrooms - ${property.baths} baths</p>
             <h3 class="price">${property.price}</h3>
         </div>
     `
 }
-document.getElementById("card-container").innerHTML = `
-<h1 id="heading">Results for stays in ${propData.location}</h1>
-${propData.map(propertyTemplate).join('')} 
+function buildCards(propData) {
+    document.getElementById("card-container").innerHTML = `
+    <h1 id="heading">Results for stays in ${propData.location}</h1>
+    ${propData.map(propertyTemplate).join('')} 
 `
-
-
-
-/*
-add this into ul class = "property-cards"{
-    for(int i = 0; i < jsonList.length; i++){
-        buildHTMLCard(cardValues[i]);
-    }
 }
-
-function buildHTMLCard(currentCard){
-    insert this HTML{
-        <li>
-            <div class="card" onclick="window.location = 'property-detailed.html'">
-                <div class="card-image main-img-{id}"></div>
-                <h2>{title}</h2>
-                <p>``{guest} guests - {bed} beds - {bath} bath``</p>
-                <h3 class="price">``${price}``</h3>
-            </div>
-        </li>
-    }
-*/
 const rangeInput = document.querySelectorAll(".range-input input"),
     priceInput = document.querySelectorAll(".price-input input"),
     progress = document.querySelector(".slider .progress");
