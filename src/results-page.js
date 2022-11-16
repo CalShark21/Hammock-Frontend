@@ -59,16 +59,14 @@ const propData = [
     </div>
  */
 
-var propData;
-
-fetch('http://localhost:8080/api/properties')
+fetch('http://localhost:8080/api/properties/')
     .then( res => res.json())
     .then( data => buildCards(data))
 
 
 function propertyTemplate(property){
     return `
-        <div class="card" onclick="window.location= 'property-detailed.html'">
+        <div class="card" onclick="passData()">
             <div class="card-image" style="background-image: url('/images/properties/${property.main_photo}.jpg')"></div>
             <h2>${property.title}</h2>
             <p>${property.guests} guests - ${property.beds} bedrooms - ${property.baths} baths</p>
@@ -81,6 +79,10 @@ function buildCards(propData) {
     <h1 id="heading">Results for stays in ${propData.location}</h1>
     ${propData.map(propertyTemplate).join('')} 
 `
+}
+function passData(){
+    // function call for property data with property id
+    window.location="property-detailed.html";
 }
 const rangeInput = document.querySelectorAll(".range-input input"),
     priceInput = document.querySelectorAll(".price-input input"),

@@ -90,7 +90,7 @@ body{
     float: left;
     border: 1px;
 }
-.boxed{
+#boxed{
     padding: 10px;
     border-radius: 4%;
     margin-left: 10px;
@@ -348,6 +348,9 @@ body{
 #property-cards{
     width: 800px;
     list-style: none;
+}
+#property-card{
+    margin-bottom: 20px;
 }
 .account-info{
     position: absolute;
