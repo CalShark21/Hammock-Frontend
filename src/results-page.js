@@ -66,7 +66,7 @@ fetch('http://localhost:8080/api/properties/')
 
 function propertyTemplate(property){
     return `
-        <div class="card" onclick="passData()">
+        <div class="card" onclick="passData(${property.id})">
             <div class="card-image" style="background-image: url('/images/properties/${property.main_photo}.jpg')"></div>
             <h2>${property.title}</h2>
             <p>${property.guests} guests - ${property.beds} bedrooms - ${property.baths} baths</p>
@@ -80,9 +80,8 @@ function buildCards(propData) {
     ${propData.map(propertyTemplate).join('')} 
 `
 }
-function passData(){
-    // function call for property data with property id
-    window.location="property-detailed.html";
+function passData(propID){
+    window.location.href = 'property-detailed.html' + '#' + propID;
 }
 const rangeInput = document.querySelectorAll(".range-input input"),
     priceInput = document.querySelectorAll(".price-input input"),

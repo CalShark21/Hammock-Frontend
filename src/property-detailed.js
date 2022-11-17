@@ -1,18 +1,8 @@
-const overlay = document.getElementById('overlay')
 
-const photo1 = document.getElementById('photo-1')
-const photo2 = document.getElementById('photo-2')
-const photo3 = document.getElementById('photo-3')
-const photoPrev1 = document.getElementById('photo-prev-1')
-const photoPrev2 = document.getElementById('photo-prev-2')
-const photoPrev3 = document.getElementById('photo-prev-3')
-const photoPrev4 = document.getElementById('photo-prev-4')
-const photoPrev5 = document.getElementById('photo-prev-5')
-const photoPrev6 = document.getElementById('photo-prev-6')
-const photoPrev7 = document.getElementById('photo-prev-7')
-const photoPrev8 = document.getElementById('photo-prev-8')
+var propID = window.location.hash.substring(1)
+var fetchURL = 'http://localhost:8080/api/properties/' + propID;
 
-fetch('http://localhost:8080/api/properties/5')
+fetch(fetchURL)
     .then( res => res.json())
     .then( data => propertyTemplate(data));
 
@@ -20,7 +10,7 @@ function propertyTemplate(property){
     document.getElementById("main-container").innerHTML = `
     <div id="photo-container" class="photos">
 
-                <img id="photo-1" class="photos" src="images/photos/${property.main_photo}" alt="Main photo of location">
+                <img id="photo-1" class="photos" src="images/photos/Main1.JPG" alt="Main photo of location">
 
                 <img id="photo-2" class="photos" src="images/photos/Main2.JPG" alt="">
 
@@ -41,7 +31,7 @@ function propertyTemplate(property){
                 </section>
 
                 <div class="photo-modal" id="photo-modal">
-                    <img id="photo-large" src="images/photos/Main1.JPG" alt="">
+                    <img id="photo-large" src="images/properties/villa-main.jpg" alt="">
                 </div>
                 <div id="overlay"></div>
             </div>
@@ -58,10 +48,28 @@ function propertyTemplate(property){
             </div>
             <div class="btn-group">
                 <button class="saveToList-button">Save To List</button>
-                <button class="contact-button" onclick="window.location= 'bookingpage.html'">Book Trip</button>
+                <button class="contact-button" onclick="passData(${property.id})">Book Trip</button>
             </div>
     `
 }
+function passData(propID){
+    window.location.href = 'bookingpage.html' + '#' + propID;
+}
+
+const overlay = document.getElementById('overlay')
+
+const photo1 = document.getElementById('photo-1')
+const photo2 = document.getElementById('photo-2')
+const photo3 = document.getElementById('photo-3')
+const photoPrev1 = document.getElementById('photo-prev-1')
+const photoPrev2 = document.getElementById('photo-prev-2')
+const photoPrev3 = document.getElementById('photo-prev-3')
+const photoPrev4 = document.getElementById('photo-prev-4')
+const photoPrev5 = document.getElementById('photo-prev-5')
+const photoPrev6 = document.getElementById('photo-prev-6')
+const photoPrev7 = document.getElementById('photo-prev-7')
+const photoPrev8 = document.getElementById('photo-prev-8')
+
 
 overlay.addEventListener('click', ()=> {
     const modals = document.querySelectorAll('.photo-modal.active')

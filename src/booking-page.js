@@ -35,32 +35,17 @@
         </div>
 
 */
-/*
-const propData = [
-    {
-        "title": "Italian Villa",
-        "id": "1234",
-        "description": "this is a fake description",
-        "type": "Condo",
-        "location": "Rhode Island",
-        "guests": 5,
-        "beds": 1,
-        "baths": 3,
-        "amenities": "free coffee",
-        "price": 180,
-        "main_photo": "villa-main.jpg",
-        "side_photo": "villa-main.jpg"
-    }
-    ]
 
-buildCards(propData);
-*/
+var propID = window.location.hash.substring(1)
+var fetchURL = 'http://localhost:8080/api/properties/' + propID;
 
-fetch('http://localhost:8080/api/properties/5')
+fetch(fetchURL)
     .then( res => res.json())
-    .then( data => propertyTemplate(data))
+    .then( data => propertyTemplate(data));
 
 function propertyTemplate(property){
+    const pricePer = property.price * 5;
+    const totalCost = pricePer + 100 + 75 + 105;
     document.getElementById("boxed").innerHTML = `
     <div class="box-top">
                 <img src="../images/${property.main_photo}.jpg" alt="house pic" >
@@ -82,7 +67,7 @@ function propertyTemplate(property){
                         <p>Occupancy Fee </p>
                     </div>
                 <div class="box-body-right">
-                        <p>$525.00 </p>
+                        <p>$${pricePer}</p>
                         <p>$100.00</p>
                         <p>$75.00 </p>
                         <p>$105.00 </p>
@@ -91,11 +76,10 @@ function propertyTemplate(property){
             <hr/>
             <div style="display: flex;justify-content: space-between;">
                 <p style="font-weight: 600;"> Total(USD)</p>
-                <p>$805.00</p>
+                <p>$${totalCost}</p>
             </div>
     `
 }
-
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
