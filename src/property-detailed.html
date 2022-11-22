@@ -44,7 +44,7 @@
     </nav>
     </div>
     <main>
-        <div class="main-container">
+        <div id="main-container">
             <div id="photo-container" class="photos">
 
                 <img id="photo-1" class="photos" src="images/photos/Main1.JPG" alt="Main photo of location">
@@ -72,7 +72,6 @@
                 </div>
                 <div id="overlay"></div>
             </div>
-
             <div class="description-container">
                 <div class="top-description">
                     <h1 id="name" class="top-description">Hostel Villa <strong>$266</strong><small>/night</small></h1>
@@ -85,9 +84,14 @@
                 </div>
             </div>
             <div class="btn-group">
-                <button class="saveToList-button">SaveToList</button>
-                <button class="contact-button">Contact Renter</button>
+                <button class="saveToList-button">Save To List</button>
+                <button class="contact-button" onclick="window.location= 'bookingpage.html'">Book Trip</button>
             </div>
+
+        </div>
+    </main>
+</body>
+</html>
 
 <!--
             <div class="calender-container">
@@ -113,7 +117,3 @@
                     </div>
                 </div>
 -->
-        </div>
-    </main>
-</body>
-</html>
