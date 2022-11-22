@@ -59,15 +59,45 @@ const propData = [
     </div>
  */
 
-fetch('http://localhost:8080/api/properties/')
+// Search terms from Search Page, via localStorage
+let inputLocation  = localStorage.getItem('location');
+let inputStartDate = localStorage.getItem('start-date');
+let inputEndDate   = localStorage.getItem('end-date');
+let inputGuests    = localStorage.getItem('guests');
+
+// Search bar HTML elements
+const srchBarLocation  = document.getElementById("srch-bar-location");
+const srchBarStartDate = document.getElementById("srch-bar-start-date");
+const srchBarEndDate   = document.getElementById("srch-bar-end-date");
+const srchBarGuests    = document.getElementById("srch-bar-guests");
+const srchBarButton    = document.getElementById("srch-bar-submit");
+
+// Fill in value of search bar elements so search data carries over from Search Page
+srchBarLocation.value = inputLocation;
+srchBarStartDate.value = inputStartDate;
+srchBarEndDate.value = inputEndDate;
+srchBarGuests.value = inputGuests;
+
+let locationFetchURL = 'http://localhost:8080/api/properties/?location=' + inputLocation;
+
+srchBarButton.addEventListener("click", ()=>{
+    localStorage.setItem('location', srchBarLocation.value);
+    localStorage.setItem('start-date', srchBarStartDate.value);
+    localStorage.setItem('end-date', srchBarEndDate.value);
+    localStorage.setItem('guests', srchBarGuests.value);
+    locationFetchURL = 'http://localhost:8080/api/properties/?location=' + srchBarLocation.value;
+});
+
+
+
+fetch(locationFetchURL)
     .then( res => res.json())
     .then( data => buildCards(data))
-
 
 function propertyTemplate(property){
     return `
         <div class="card" onclick="passData(${property.id})">
-            <div class="card-image" style="background-image: url('/images/properties/${property.main_photo}.jpg')"></div>
+            <div class="card-image" style="background-image: url('Main1.JPG')"></div>
             <h2>${property.title}</h2>
             <p>${property.guests} guests - ${property.beds} bedrooms - ${property.baths} baths</p>
             <h3 class="price">${property.price}</h3>
@@ -76,7 +106,7 @@ function propertyTemplate(property){
 }
 function buildCards(propData) {
     document.getElementById("card-container").innerHTML = `
-    <h1 id="heading">Results for stays in ${propData.location}</h1>
+    <h1 id="heading">Results for stays in ${inputLocation}</h1>
     ${propData.map(propertyTemplate).join('')} 
 `
 }
