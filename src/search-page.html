@@ -26,18 +26,18 @@
             <h2>Find a rental</h2>
 
             <!-- 'Location' group-->
-            <form action="">
-                <div class="form-group">
+            <form action="" id="search-form">
+                <div class="form-group" id="form-location">
                     <div class="form-inner">
                         <label for="">
                             Location
                         </label>
-                        <input type="text" class="form-control">
+                        <input type="text" id="text-input-location" class="form-control">
                     </div>
                 </div>
 
                 <!-- Check-in/Check-out group-->
-                <div class="form-group">
+                <div class="form-group" id="form-dates">
 
                     <div class="row">
 
@@ -46,7 +46,7 @@
                                 <label for="">
                                     Check-in Date
                                 </label>
-                                <input type="date" class="form-control-date">
+                                <input type="date" id ="start-date" class="form-control-date">
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                                 <label for="">
                                     Check-out Date
                                 </label>
-                                <input type="date" class="form-control-date">
+                                <input type="date" id="end-date" class="form-control-date">
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                         <label for="">
                             Number of travelers
                         </label>
-                        <input type="number" value="1" class="form-control">
+                        <input type="number" id="guests" value="1" class="form-control">
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@
             </form>
         </div>
 
-        <div class="search-btn">
+        <div class="search-btn" id="srch-btn">
             <a href="">
                 Search for a stay
             </a>
@@ -100,9 +100,18 @@
                 Cancel
             </a>
         </div>
+
+        <div id="div1">
+            <a href="">
+                Test Area
+            </a>
+        </div>
     </div>
 </div>
 
-<script src="search-page-script.js"></script>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="search-page.js"></script>
+
 </html>
