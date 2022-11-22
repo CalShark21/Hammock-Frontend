@@ -1,3 +1,61 @@
+
+var propID = window.location.hash.substring(1)
+var fetchURL = 'http://localhost:8080/api/properties/' + propID;
+
+fetch(fetchURL)
+    .then( res => res.json())
+    .then( data => propertyTemplate(data));
+
+function propertyTemplate(property){
+    document.getElementById("main-container").innerHTML = `
+    <div id="photo-container" class="photos">
+
+                <img id="photo-1" class="photos" src="images/photos/Main1.JPG" alt="Main photo of location">
+
+                <img id="photo-2" class="photos" src="images/photos/Main2.JPG" alt="">
+
+                <img id="photo-3" class="photos" src="images/photos/Main3.JPG" alt="">
+
+                <section id="photo-prev-container" class="photo-prev-container">
+
+                    <img id="photo-prev-1" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+                    <img id="photo-prev-2" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+                    <img id="photo-prev-3" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+                    <img id="photo-prev-4" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+                    <img id="photo-prev-5" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+                    <img id="photo-prev-6" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+                    <img id="photo-prev-7" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+                    <img id="photo-prev-8" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+                    <p class="view-photos"><a href="">View all photos</a> </p>
+
+                </section>
+
+                <div class="photo-modal" id="photo-modal">
+                    <img id="photo-large" src="images/properties/villa-main.jpg" alt="">
+                </div>
+                <div id="overlay"></div>
+            </div>
+            <div class="description-container">
+                <div class="top-description">
+                    <h1 id="name" class="top-description">${property.title}<strong>${property.price}</strong><small>/night</small></h1>
+                </div>
+                <h2 class="description">${property.guests} guest - ${property.beds} bed - ${property.baths} bath</h2>
+                <div class="detailed-description-container">
+                    <p class="description-detailed">
+                        ${property.description}
+                    </p>
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="saveToList-button">Save To List</button>
+                <button class="contact-button" onclick="passData(${property.id})">Book Trip</button>
+            </div>
+    `
+}
+function passData(propID){
+    window.location.href = 'bookingpage.html' + '#' + propID;
+}
+
 const overlay = document.getElementById('overlay')
 
 const photo1 = document.getElementById('photo-1')

@@ -90,7 +90,7 @@ body{
     float: left;
     border: 1px;
 }
-.boxed{
+#boxed{
     padding: 10px;
     border-radius: 4%;
     margin-left: 10px;
@@ -348,6 +348,9 @@ body{
 #property-cards{
     width: 800px;
     list-style: none;
+}
+#property-card{
+    margin-bottom: 20px;
 }
 .account-info{
     position: absolute;
@@ -627,4 +630,70 @@ body{
     border: none;
     border-radius: 5px;
     font-weight: bold;
+}
+
+/* Callum's Styles*/
+
+.centered-container {
+    display: flex;
+    font-family: Verdana;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+    margin-bottom: 100px;
+    width: 40em
+}
+.centered-container p {
+    margin-left: 160px;
+    font-weight: 900;
+    font-size: 1.5em;
+    color: #007E83;
+    line-height: 0px;
+    margin-top: -5px;
+}
+
+.middle-container {
+    font-family: Verdana;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    position: relative;
+}
+
+.middle-container h2 {
+    font-size: 22px;
+    width: 205px;
+    height: 48px;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    margin-right: -50%;
+    margin-right: -50%;
+    transform: translate(50%, -150%)
+}
+.btn-group {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    position: relative;
+    transform: translate(150%, 50%);
+
+
+}
+.btn-group button {
+    width: 205px;
+    height: 48px;
+    font-size: 18px;
+    background-color: #FFFFF;
+    border-radius: 22px;
+    border: 2px #008489;
+    color: black;
+    padding: 10px 32px;
+    margin: 10px;
+    cursor: pointer;
+    justify-content: center;
+}
+.btn-group button:hover {
+    background-color: #008489;
+    color: white;
 }
