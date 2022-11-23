@@ -124,6 +124,77 @@ const adultPlus = document.getElementById("adult-plus"),
     childrenMinus = document.getElementById("children-minus"),
     childrenNum = document.getElementById("children-num");
 
+// HTML elements for search functions
+const filterPriceMin = document.getElementById("filter-price-min");
+const filterPriceMax = document.getElementById("filter-price-max");
+const filterSrchBtn = document.getElementById("filter-search-btn");
+
+// Price slider function (for search)
+
+function filterSearchPrice(min, max) {
+
+    var queryString = min + "," + max;
+    console.log(queryString);
+
+    fetch('http://localhost:8080/api/properties?price=' + queryString)
+        .then( res => res.json())
+        .then( data => buildCards(data))
+}
+
+
+// Check box function (for search)
+filterSrchBtn.addEventListener("click", ()=> {
+    //e.preventDefault();
+
+    console.log("Refresh button clicked");
+
+    var queryString = "";
+    let checkedFilters = document.querySelectorAll("input[type='checkbox']:checked");
+
+    checkedFilters.forEach(function(checkbox) {
+        if (checkbox.value.length !== 0 ){
+            queryString += checkbox.value + ","
+        }
+    });
+    console.log("Filter by: " + queryString);
+
+    fetch('http://localhost:8080/api/properties?proptype=' + queryString)
+        .then( res => res.json())
+        .then( data => buildCards(data))
+
+});
+
+function filterSearch () {
+    //e.preventDefault();
+
+    console.log("Refresh button clicked");
+
+    var urlString = "";
+    let checkedFilters = document.querySelectorAll("input[type='checkbox']:checked");
+
+    checkedFilters.forEach(function(checkbox) {
+        if (checkbox.value.length !== 0 ){
+            urlString += checkbox.value + ","
+        }
+    });
+    console.log("Filter by: " + urlString);
+
+    fetch('http://localhost:8080/api/properties?proptype=' + urlString)
+        .then( res => res.json())
+        .then( data => buildCards(data))
+
+};
+
+
+
+
+
+
+
+
+
+
+
 
 // Counter Buttons
 
@@ -200,5 +271,7 @@ rangeInput.forEach(input =>{
             progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
             progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
         }
+
+        filterSearchPrice(rangeInput[0].value, rangeInput[1].value);
     });
 })
