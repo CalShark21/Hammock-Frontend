@@ -93,6 +93,7 @@ Back5.onclick = function (){
 Form6.addEventListener('submit', e => {
     e.preventDefault();
     formData.set("price", document.getElementById("prop-price").value);
+    formData.set("email", document.getElementById("prop-email").value);
     const object = {};
     formData.forEach((value,key) => object[key] = value);
     const json = JSON.stringify(object);
