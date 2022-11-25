@@ -129,8 +129,8 @@ const filterPriceMin = document.getElementById("filter-price-min");
 const filterPriceMax = document.getElementById("filter-price-max");
 const filterSrchBtn = document.getElementById("filter-search-btn");
 
-// Price slider function (for search)
 
+// Price slider filter API call (alled in rangeInput.forEach function below)
 function filterSearchPrice(min, max) {
 
     var queryString = min + "," + max;
@@ -141,9 +141,30 @@ function filterSearchPrice(min, max) {
         .then( data => buildCards(data))
 }
 
+// Property Type filter API call (
+function filterSearchType () {
+    //e.preventDefault();
+
+    var urlString = "";
+    let checkedFilters = document.querySelectorAll("input[type='checkbox']:checked");
+
+    checkedFilters.forEach(function(checkbox) {
+        if (checkbox.value.length !== 0 ){
+            urlString += checkbox.value + ","
+        }
+    });
+    console.log("Filter by: " + urlString);
+
+    fetch('http://localhost:8080/api/properties?type=' + urlString)
+        .then( res => res.json())
+        .then( data => buildCards(data))
+
+
+}
+
 
 // Check box function (for search)
-filterSrchBtn.addEventListener("click", ()=> {
+/*filterSrchBtn.addEventListener("click", ()=> {
     //e.preventDefault();
 
     console.log("Refresh button clicked");
@@ -162,28 +183,9 @@ filterSrchBtn.addEventListener("click", ()=> {
         .then( res => res.json())
         .then( data => buildCards(data))
 
-});
+});*/
 
-function filterSearch () {
-    //e.preventDefault();
 
-    console.log("Refresh button clicked");
-
-    var urlString = "";
-    let checkedFilters = document.querySelectorAll("input[type='checkbox']:checked");
-
-    checkedFilters.forEach(function(checkbox) {
-        if (checkbox.value.length !== 0 ){
-            urlString += checkbox.value + ","
-        }
-    });
-    console.log("Filter by: " + urlString);
-
-    fetch('http://localhost:8080/api/properties?proptype=' + urlString)
-        .then( res => res.json())
-        .then( data => buildCards(data))
-
-};
 
 
 
