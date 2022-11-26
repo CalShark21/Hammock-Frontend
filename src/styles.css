@@ -636,62 +636,61 @@ body{
 
 .centered-container {
     display: flex;
-    font-family: Verdana;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 120px;
-    margin-bottom: 100px;
-    width: 40em
+    margin: 90px auto 70px;
+    width: 35em;
 }
+
+.centered-container h1 {
+    font-family: 'Roboto-black', sans-serif;
+    font-size: 3.0em;
+}
+
 .centered-container p {
-    margin-left: 160px;
-    font-weight: 900;
+    font-family: 'Secular One',serif;
+    margin-left: 150px;
+    font-weight: 400;
     font-size: 1.5em;
     color: #007E83;
-    line-height: 0px;
-    margin-top: -5px;
+    line-height: 0;
+    margin-top: -10px;
 }
 
 .middle-container {
+    display: flex;
     font-family: Verdana;
+    width: 30em;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    position: relative;
+    margin-top: -3px;
+
 }
 
 .middle-container h2 {
-    font-size: 22px;
-    width: 205px;
+    font-family: 'roboto-bold', sans-serif;
+    font-size: 24px;
+    margin-left: 160px;
+    margin-bottom: -7px;
     height: 48px;
-    position: absolute;
-    left: 40%;
-    top: 50%;
-    margin-right: -50%;
-    margin-right: -50%;
-    transform: translate(50%, -150%)
 }
 .btn-group {
     margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    position: relative;
-    transform: translate(150%, 50%);
+    transform: translate(-4%);
 
 
 }
 .btn-group button {
-    width: 205px;
-    height: 48px;
+    width: 210px;
+    height: 50px;
     font-size: 18px;
-    background-color: #FFFFF;
+    font-weight: 510;
+    background-color: transparent;
     border-radius: 22px;
-    border: 2px #008489;
-    color: black;
+    border: 1.5px solid #008489;
     padding: 10px 32px;
     margin: 10px;
     cursor: pointer;
     justify-content: center;
+    -webkit-appearance: none;
 }
 .btn-group button:hover {
     background-color: #008489;
