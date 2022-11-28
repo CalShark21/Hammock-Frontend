@@ -35,7 +35,7 @@ function propertyTemplate(property){
                 </div>
                 <div id="overlay"></div>
             </div>
-            <div class="description-container">
+    <div class="description-container">
                 <div class="top-description">
                     <h1 id="name" class="top-description">${property.title}<strong>${property.price}</strong><small>/night</small></h1>
                 </div>
@@ -46,14 +46,15 @@ function propertyTemplate(property){
                     </p>
                 </div>
             </div>
-            <div class="btn-group">
+    <div class="btn-group">
                 <button class="saveToList-button">Save To List</button>
                 <button class="contact-button" onclick="passData(${property.id})">Book Trip</button>
-            </div>
+    </div>
     `
 }
 function passData(propID){
-    window.location.href = 'bookingpage.html' + '#' + propID;
+    console.log(propID);
+    window.location.href = 'booking-page.html' + '#' + propID;
 }
 
 const overlay = document.getElementById('overlay')
