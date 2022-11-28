@@ -69,7 +69,7 @@ Next4.onclick = function (){
     Form4.style.left = "-450px";
     Form5.style.left = "40px";
     progress.style.width = "300px";
-    formData.set('main_photo',"villa-main");
+    formData.set('main_photo',);
     formData.set('side_photo',"villa-main");
     // add image upload later
 }
