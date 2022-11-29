@@ -69,7 +69,7 @@ Next4.onclick = function (){
     Form4.style.left = "-450px";
     Form5.style.left = "40px";
     progress.style.width = "300px";
-    formData.set('main_photo',"villa-main");
+    formData.set('main_photo',);
     formData.set('side_photo',"villa-main");
     // add image upload later
 }
@@ -93,6 +93,7 @@ Back5.onclick = function (){
 Form6.addEventListener('submit', e => {
     e.preventDefault();
     formData.set("price", document.getElementById("prop-price").value);
+    formData.set("email", document.getElementById("prop-email").value);
     const object = {};
     formData.forEach((value,key) => object[key] = value);
     const json = JSON.stringify(object);
