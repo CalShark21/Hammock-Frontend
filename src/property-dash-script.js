@@ -17,7 +17,7 @@ function propertyTemplate(property){
     <li>
         <div id="property-card">
         <div class="card-body">
-            <a href="#"><div class="card-pic">
+            <a href="property-detailed.html#${property.id}"><div class="card-pic">
                 <img src="#" alt="Property Pic">
             </div></a>
             <div class="card-text" style="font-size: 12px;">
@@ -110,6 +110,10 @@ for (i = 0; i < coll.length; i++) {
         }
     });
 }
+
+
+
+
 function guestClick(click){
     const totalClicks = document.getElementById('cnt-guest');
     const sumvalue = parseInt(totalClicks.innerText) + click;

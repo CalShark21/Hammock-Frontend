@@ -76,22 +76,29 @@
             <button data-close-button class="close-button">&times;</button>
         </div>
         <div class="modal-body">
+
             <label style="padding-left: 10px; display: block">Tell the property owner a little bit about yourself and coordinate payment.</label>
-            <form>
+
+            <form action="https://formsubmit.co/sorona9958@nubotel.com" method="POST">
+
                     <div class="modal-form modal-email">
                         <label>Email</label><br>
-                        <input type="email"/>
+                        <input type="email" name="email" required>
                     </div>
                     <div class="modal-form modal-subject">
                         <label>Subject</label><br>
-                        <input type="text"/>
+                        <input type="text" name="_subject">
                     </div>
                     <div class="modal-form modal-body">
                         <label>Body</label><br>
-                        <textarea></textarea>
+                        <input type="text" name="message">
                     </div>
+
+                    <input type="hidden" name="_captcha" value="false">
                     <button type="submit">Send</button><br>
+
             </form>
+
         </div>
     </div>
     <div id="overlay"></div>

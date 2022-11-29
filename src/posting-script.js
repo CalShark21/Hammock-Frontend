@@ -19,10 +19,15 @@ var Back5 = document.getElementById("Back5");
 
 var progress = document.getElementById("progress");
 
+const formData = new FormData();
+
 Next1.onclick = function (){
     Form1.style.left = "-450px";
     Form2.style.left = "40px";
     progress.style.width = "120px";
+    formData.set('title', document.getElementById('prop-title').value);
+    formData.set('type', document.getElementById('prop-type').value);
+    formData.set('location', document.getElementById('prop-location').value);
 }
 Back1.onclick = function (){
     Form1.style.left = "40px";
@@ -33,6 +38,9 @@ Next2.onclick = function (){
     Form2.style.left = "-450px";
     Form3.style.left = "40px";
     progress.style.width = "180px";
+    formData.set('guests', document.getElementById('cnt-guest').innerText);
+    formData.set('beds', document.getElementById('cnt-bed').innerText);
+    formData.set('baths', document.getElementById('cnt-bath').innerText);
 }
 Back2.onclick = function (){
     Form2.style.left = "40px";
@@ -43,6 +51,14 @@ Next3.onclick = function (){
     Form3.style.left = "-450px";
     Form4.style.left = "40px";
     progress.style.width = "240px";
+    let amenities = [];
+    let checkboxes = document.getElementsByName('amenities[]');
+    for(let i = 0; i < checkboxes.length; i++){
+        if (checkboxes[i].checked){
+            amenities.push(checkboxes[i].value);
+        }
+    }
+    formData.set('amenities',amenities.toString());
 }
 Back3.onclick = function (){
     Form3.style.left = "40px";
@@ -53,6 +69,9 @@ Next4.onclick = function (){
     Form4.style.left = "-450px";
     Form5.style.left = "40px";
     progress.style.width = "300px";
+    formData.set('main_photo',);
+    formData.set('side_photo',"villa-main");
+    // add image upload later
 }
 Back4.onclick = function (){
     Form4.style.left = "40px";
@@ -63,12 +82,38 @@ Next5.onclick = function (){
     Form5.style.left = "-450px";
     Form6.style.left = "40px";
     progress.style.width = "360px";
+    formData.set('description', document.getElementById('prop-description').value);
 }
 Back5.onclick = function (){
     Form5.style.left = "40px";
     Form6.style.left = "450px";
     progress.style.width = "300px";
 }
+
+Form6.addEventListener('submit', e => {
+    e.preventDefault();
+    formData.set("price", document.getElementById("prop-price").value);
+    formData.set("email", document.getElementById("prop-email").value);
+    const object = {};
+    formData.forEach((value,key) => object[key] = value);
+    const json = JSON.stringify(object);
+    console.log(json);
+
+    fetch('http://localhost:8080/api/properties/',{
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: json,
+    })
+        .then(res => res.text())
+        .then(text => {
+            console.log(text);
+            window.location.href = 'property-dashboard.html';
+        })
+        .catch(err => console.log(err))
+})
+
 
 function guestClick(click){
     const totalClicks = document.getElementById('cnt-guest');
