@@ -47,20 +47,20 @@
             <div class="price-input">
                 <div class="field">
                     <span>Min</span>
-                    <input type="number" class="input-min" value="2500">
+                    <input type="number" class="input-min" value="100">
                 </div>
                 <div class="separator">-</div>
                 <div class="field">
                     <span>Max</span>
-                    <input type="number" class="input-max" value="7500">
+                    <input type="number" class="input-max" value="700">
                 </div>
             </div>
             <div class="slider">
                 <div class="progress"></div>
             </div>
             <div class="range-input">
-                <input type="range" class="range-min" min="0" max="10000" value="2500" step="10">
-                <input type="range" class="range-max" min="0" max="10000" value="7500" step="10">
+                <input type="range" class="range-min" min="0" max="1000" value="100" step="10" id="filter-price-min">
+                <input type="range" class="range-max" min="0" max="1000" value="700" step="10" id="filter-price-max">
             </div>
         </div>
         <div class="guest-container">
@@ -84,23 +84,23 @@
             <h3>Property Type</h3>
             <div class="property-checkbox-wrapper">
                 <label id="hotel-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="hotel-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="hotel-checkbox" value="hotel" onclick="filterSearchType()">
                     Hotel
                 </label>
                 <label id="apartment-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="apartment-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="apartment-checkbox" value="apartment" onclick="filterSearchType()">
                     Apartment
                 </label>
                 <label id="hostel-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="hostel-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="hostel-checkbox" value="hostel" onclick="filterSearchType()">
                     Hostel/Backpacker
                 </label>
                 <label id="condo-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="condo-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="condo-checkbox" value="condo" onclick="filterSearchType()">
                     Condo
                 </label>
                 <label id="house-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="house-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="house-checkbox" value="house" onclick="filterSearchType()">
                     Entire House
                 </label>
             </div>
@@ -131,8 +131,11 @@
                 </label>
             </div>
         </div>
-        <div>
-            <button id="filter-search-btn">Refresh Search</button>
+
+        <div class="filter-btn">
+            <a href="">
+                Refresh Search
+            </a>
         </div>
 
     </section>
