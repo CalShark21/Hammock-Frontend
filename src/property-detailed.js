@@ -1,3 +1,7 @@
+/*
+The property detailed js code includes opening modal for highlighting properties photos
+*/
+
 
 var propID = window.location.hash.substring(1)
 var fetchURL = 'http://localhost:8080/api/properties/' + propID;
@@ -59,6 +63,7 @@ function passData(propID){
 
 const overlay = document.getElementById('overlay')
 
+// get elements for property images
 const photo1 = document.getElementById('photo-1')
 const photo2 = document.getElementById('photo-2')
 const photo3 = document.getElementById('photo-3')
@@ -71,7 +76,7 @@ const photoPrev6 = document.getElementById('photo-prev-6')
 const photoPrev7 = document.getElementById('photo-prev-7')
 const photoPrev8 = document.getElementById('photo-prev-8')
 
-
+// Event listener for when user clicks outside of model. Closes model and overlay
 overlay.addEventListener('click', ()=> {
     const modals = document.querySelectorAll('.photo-modal.active')
     modals.forEach(modal => {
@@ -79,19 +84,22 @@ overlay.addEventListener('click', ()=> {
     })
 })
 
+// Opens modal
 function openModal(modal){
     if(modal == null) return
     modal.classList.add('active')
     overlay.classList.add('active')
 }
 
+// Closes modal
 function closeModal(modal){
     if(modal == null) return
     modal.classList.remove('active')
     overlay.classList.remove('active')
 }
 
-//click even for photos
+/*  event listeners for when user clicks on photos */
+
 photo1.addEventListener('click', ()=>{
     const modals = document.querySelectorAll('.photo-modal')
     document.getElementById('photo-large').src = "images/photos/Main1.JPG"
@@ -210,8 +218,8 @@ photoPrev8.addEventListener('click', ()=>{
 
 
 
-// Calendar
-
+// Calendar js code. Not in use
+/*
 const date = new Date();
 
 const renderCalendar = () =>{
@@ -287,73 +295,4 @@ document.querySelector('.next').addEventListener('click',()=>{
 })
 
 renderCalendar();
-
-/*
-const renderCalendar = ()=>{
-
-    date.setDate(1);
-
-    const monthDays = document.querySelector(".days")
-    const lastDay = new Date(date.getFullYear(), get.getMonth()+1, 0).getDate();
-
-    const prevLastDay = new Date(date.getFullYear(), get.getMonth(), 0).getDate();
-
-    const firstDayIndex = date.getDay;
-
-    const lastDayIndex = new Date(date.getFullYear(), get.getMonth()+1, 0).getDay();
-
-    const nextDays = 7 - lastDayIndex - 1;
-
-    const months= [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ]
-
-    document.querySelector(".date h1").innerHTML = months[date.getMonth()];
-    document.querySelector(".date p").innerHTML = new Date().toDateString();
-
-    let days = "";
-
-    for(let x = firstDayIndex; x>0; x--){
-        days += `<div class="prev-date">${prevLastDay - x + 1}</div>`
-    }
-
-    for(let i = 1;i<=lastDay;i++){
-        days +='<div>${i}</div>';
-
-    }
-
-    for(let j = 1; j<= nextDays;j++){
-        if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()){
-            days +=`<div class="today">${i}</div>`;
-        }else{
-            days+=`<div>${i}</div>`;
-        }
-        days+= `<div>${i}</div>`;
-        monthDays.innerHTML = days;
-    }
-}
-renderCalendar();
-
-
-document.querySelector('.prev').addEventListener('click', ()=>{
-    date.setMonth(date.getMonth()-1);
-    renderCalendar();
-})
-
-document.querySelector('.next').addEventListener('click', ()=>{
-    date.setMonth(date.getMonth()+1);
-    renderCalendar();
-})
 */
-

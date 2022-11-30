@@ -1,3 +1,7 @@
+<!-- Results page displays presents a card layout view of properties after a search.
+Includes a filter bar to help narrow search further
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,7 @@
 
 </head>
 <body>
+<!--Nav bar allows user to go back to the home page or create a new search-->
 <div class="nav-container">
     <nav id="nav-bar">
         <button class="logo-button">hammock</button>
@@ -38,31 +43,41 @@
         </ul>
     </nav>
 </div>
+
+
 <main class="main">
+
+    <!-- A divider line to separate nav bar from rest of the page -->
     <div id="divider"></div>
+
+    <!-- Filter bar to help user narrow search further -->
     <section class="filter-container">
         <h2 id="Filters">Filters</h2>
+
+        <!-- A slider to specify price range -->
         <div class="price-wrapper">
             <h3>Price</h3>
             <div class="price-input">
                 <div class="field">
                     <span>Min</span>
-                    <input type="number" class="input-min" value="2500">
+                    <input type="number" class="input-min" value="100">
                 </div>
                 <div class="separator">-</div>
                 <div class="field">
                     <span>Max</span>
-                    <input type="number" class="input-max" value="7500">
+                    <input type="number" class="input-max" value="700">
                 </div>
             </div>
             <div class="slider">
                 <div class="progress"></div>
             </div>
             <div class="range-input">
-                <input type="range" class="range-min" min="0" max="10000" value="2500" step="10">
-                <input type="range" class="range-max" min="0" max="10000" value="7500" step="10">
+                <input type="range" class="range-min" min="0" max="1000" value="100" step="10" id="filter-price-min">
+                <input type="range" class="range-max" min="0" max="1000" value="700" step="10" id="filter-price-max">
             </div>
         </div>
+
+        <!-- User specifies the amount of guest by incrementing and decrementing count -->
         <div class="guest-container">
             <h3>Guest</h3>
             <div class="counter-wrapper">
@@ -77,35 +92,37 @@
                 <span id="children-num" class="num">00</span>
                 <span id="children-plus" class="plus">+</span>
             </div>
-
         </div>
 
+
+        <!-- User filters they type of properties they want by checking-in check boxes -->
         <div class="property-container">
             <h3>Property Type</h3>
             <div class="property-checkbox-wrapper">
                 <label id="hotel-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="hotel-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="hotel-checkbox" value="hotel" onclick="filterSearchType()">
                     Hotel
                 </label>
                 <label id="apartment-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="apartment-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="apartment-checkbox" value="apartment" onclick="filterSearchType()">
                     Apartment
                 </label>
                 <label id="hostel-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="hostel-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="hostel-checkbox" value="hostel" onclick="filterSearchType()">
                     Hostel/Backpacker
                 </label>
                 <label id="condo-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="condo-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="condo-checkbox" value="condo" onclick="filterSearchType()">
                     Condo
                 </label>
                 <label id="house-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="house-checkbox">
+                    <input class="checkbox-input" type="checkbox" id="house-checkbox" value="house" onclick="filterSearchType()">
                     Entire House
                 </label>
             </div>
         </div>
 
+        <!-- User filters the amenities needed by checking-in check boxes -->
         <div class="Amenities-container">
             <h3>Amenities</h3>
             <div class="amenities-checkbox-wrapper">
@@ -131,11 +148,17 @@
                 </label>
             </div>
         </div>
-        <div>
-            <button id="filter-search-btn">Refresh Search</button>
+
+        <!-- Button resets filter settings to default settings -->
+        <div class="filter-btn">
+            <a href="">
+                Refresh Search
+            </a>
         </div>
 
     </section>
+
+    <!-- Section for property cards -->
     <section id="card-container">
     </section>
 </main>
