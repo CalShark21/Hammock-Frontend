@@ -79,6 +79,29 @@ function propertyTemplate(property){
                 <p>$${totalCost}</p>
             </div>
     `
+    document.getElementById("modal-body").innerHTML = `
+        <label style="padding-left: 10px; display: block">Tell the property owner a little bit about yourself and coordinate payment.</label>
+
+            <form action="https://formsubmit.co/${property.email}" method="POST">
+
+                    <div class="modal-form modal-email">
+                        <label>Email</label><br>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="modal-form modal-subject">
+                        <label>Subject</label><br>
+                        <input type="text" name="_subject">
+                    </div>
+                    <div class="modal-form modal-body">
+                        <label>Body</label><br>
+                        <input type="text" name="message">
+                    </div>
+
+                    <input type="hidden" name="_captcha" value="false">
+                    <button type="submit">Send</button><br>
+
+            </form>
+    `
 }
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
