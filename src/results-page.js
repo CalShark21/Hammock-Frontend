@@ -1,63 +1,6 @@
 
 // Our JSON object containing returned objects from search, currently just returns all objects in database
 
-/* -- Fake API data --
-
-const propData = [
-    {
-        "title": "Italian Villa",
-        "id": "1234",
-        "description": "this is a fake description",
-        "type": "Condo",
-        "location": "Rhode Island",
-        "guests": 5,
-        "beds": 1,
-        "baths": 3,
-        "amenities": "free coffee",
-        "price": 180,
-        "main_photo": "villa-main.jpg",
-        "side_photo": "villa-main.jpg"
-    },
-    {
-        "title": "Cozy Cottage",
-        "id": "12345",
-        "description": "this is a fake description part 2",
-        "type": "House",
-        "location": "New Hampshire",
-        "guests": 4,
-        "beds": 2,
-        "baths": 1.5,
-        "amenities": "free wifi",
-        "price": 220,
-        "main_photo": "villa-main.jpg",
-        "side_photo": "villa-main.jpg"
-    },
-    {
-        "title": "Tilted Towers",
-        "id": "123456",
-        "description": "this is a fake description part 2",
-        "type": "House",
-        "location": "New Donk City",
-        "guests": 10,
-        "beds": 4,
-        "baths": 2,
-        "amenities": "free sha va ca doo",
-        "price": 250,
-        "main_photo": "villa-main.jpg",
-        "side_photo": "villa-main.jpg"
-    }
-]
-*/
-
-
-/* -- Template for Div --
-    <div class="card" onclick="window.location= 'property-detailed.html'">
-        <div class="card-image" style="background-image: url('/images/villa-main.jpg')"></div>
-        <h2>${propData.title}</h2>
-        <p>${propData.guests} guests - ${propData.beds} bedrooms - ${propData.baths} baths</p>
-        <h3 class="price">${propData.price}</h3>
-    </div>
- */
 
 // Search terms from Search Page, via localStorage
 let inputLocation  = localStorage.getItem('location');
@@ -94,6 +37,7 @@ fetch(locationFetchURL)
     .then( res => res.json())
     .then( data => buildCards(data))
 
+// builds template using property data received from FetchAPI call
 function propertyTemplate(property){
     return `
         <div class="card" onclick="passData(${property.id})">
@@ -104,12 +48,16 @@ function propertyTemplate(property){
         </div>
     `
 }
+
+// takes properties returned from search and builds a property card for each of them
 function buildCards(propData) {
     document.getElementById("card-container").innerHTML = `
     <h1 id="heading">Results for stays in ${inputLocation}</h1>
     ${propData.map(propertyTemplate).join('')} 
 `
 }
+
+// function that passes the property id of the property clicked on to the property-detailed page so that it knows which property to use to fill in template literal
 function passData(propID){
     window.location.href = 'property-detailed.html' + '#' + propID;
 }

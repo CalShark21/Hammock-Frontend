@@ -1,10 +1,16 @@
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 
+
+// call to FetchAPI to get all properties and calls build cards function to start building out cards for each property
 fetch('http://localhost:8080/api/properties')
     .then( res => res.json())
     .then( data => buildCards(data));
 
+/**
+ * a function that takes all the properties and their data and builds out a 'property card' for each one
+ * @param data the data for all the properties
+ */
 function buildCards(data) {
     document.getElementById("property-cards").innerHTML = `
     <h3 style="margin-left: 3%">Properties</h3>
@@ -12,6 +18,11 @@ function buildCards(data) {
 `
 }
 
+/**
+ * function to take the property data for a specific property and use it to build a 'property card' from a template literal
+ * @param property the data for this specific property being generated
+ * @returns {string} the template literal filled in for each individual property
+ */
 function propertyTemplate(property){
     return `
     <li>
@@ -39,7 +50,7 @@ function propertyTemplate(property){
     </li>
     `
 }
-
+// logic for getting the dropdown menus to work for the edit property modal
 function propertyDropdown() {
     document.getElementById("propDropdown").classList.toggle("show");
 }
@@ -96,6 +107,7 @@ function closeModal(modal){
     overlay.classList.remove('active')
 }
 
+//adds a collapsible section for each form section, to make it easier to look at
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -111,9 +123,7 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
-
-
-
+// these are button scripts for changing the guests/bed/bath count for said property
 function guestClick(click){
     const totalClicks = document.getElementById('cnt-guest');
     const sumvalue = parseInt(totalClicks.innerText) + click;
@@ -123,7 +133,6 @@ function guestClick(click){
         totalClicks.innerText = 0;
     }
 }
-
 function bedClick(click){
     const totalClicks = document.getElementById('cnt-bed');
     const sumvalue = parseInt(totalClicks.innerText) + click;
