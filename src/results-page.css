@@ -1,4 +1,5 @@
-
+/* Results page displays presents a card layout view of properties after a search.
+Includes a filter bar to help narrow search further */
 
 main{
     font-family: "Roboto Light", serif;
@@ -8,11 +9,17 @@ main{
     display: block;
 }
 
+
+/* divider lines separates nav bar from rest of the page */
+
 #divider{
     height:2px;
     width:100%;
     background-color: rgba(0, 132, 137, 0.12);
 }
+
+
+/* Filter bar */
 
 .filter-container{
     padding-left: 10px;
@@ -31,7 +38,8 @@ main{
     border-bottom-width: 1px
 }
 
-/*Price*/
+
+/* price slider */
 
 .price-wrapper{
     width: 190px;
@@ -121,7 +129,7 @@ input[type="range"]::-moz-range-thumb{
     background: #008489;
 }
 
-/*Guest*/
+/*Guest counter*/
 
 .guest-container{
     width: 200px;
@@ -162,7 +170,7 @@ input[type="range"]::-moz-range-thumb{
 }
 
 
-/*Checkbox*/
+/*Amenities Checkbox*/
 
 .property-checkbox-wrapper, .amenities-checkbox-wrapper{
     display: grid;
@@ -196,14 +204,6 @@ input[type="range"]::-moz-range-thumb{
     background-color: #309ca0;
     color: #fff;
 }
-
-
-
-
-
-
-
-
 
 /*Cards*/
 

@@ -79,24 +79,35 @@
 
             <label style="padding-left: 10px; display: block">Tell the property owner a little bit about yourself and coordinate payment.</label>
 
+            <!-- A form to contact property owner through email. Uses back-end platform to do so. -->
             <form action="https://formsubmit.co/sorona9958@nubotel.com" method="POST">
 
-                    <div class="modal-form modal-email">
-                        <label>Email</label><br>
-                        <input type="email" name="email" required>
-                    </div>
-                    <div class="modal-form modal-subject">
-                        <label>Subject</label><br>
-                        <input type="text" name="_subject">
-                    </div>
-                    <div class="modal-form modal-body">
-                        <label>Body</label><br>
-                        <input type="text" name="message">
-                    </div>
+                <!-- user inputs their email -->
+                <div class="modal-form modal-email">
+                    <label>Email</label><br>
+                    <input type="email" name="email" required>
+                </div>
 
-                    <input type="hidden" name="_next" value="thanks-page.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    <button type="submit">Send</button><br>
+                <!-- user inputs the subject of the email -->
+                <div class="modal-form modal-subject">
+                    <label>Subject</label><br>
+                    <input type="text" name="_subject">
+                </div>
+
+                <!-- user inputs the message of the email -->
+                <div class="modal-form modal-body">
+                    <label>Body</label><br>
+                    <input type="text" name="message">
+                </div>
+
+                <!-- takes user to a thank-you page after email is sent -->
+                <input type="hidden" name="_next" value="thanks-page.html">
+
+                <!-- Hides security captcha -->
+                <input type="hidden" name="_captcha" value="false">
+
+                <!-- submit button to send email -->
+                <button type="submit">Send</button><br>
 
             </form>
 

@@ -1,3 +1,9 @@
+<!--
+ The property detailed page gives us a detailed view of the property. It includes pictures, a detailed description, price, and accommodations of the property.
+ It includes a "book trip" button that will take the user to the booking page
+ -->
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,6 +19,8 @@
     <script defer src="property-detailed.js"></script>
 </head>
 <body>
+
+<!--Nav bar allows user to go back to the home page or create a new search-->
 <div class="nav-container">
     <nav id="nav-bar">
         <button class="logo-button">hammock</button>
@@ -43,16 +51,20 @@
         </ul>
     </nav>
 </div>
+
 <main>
     <div id="main-container">
+        <!-- Displays photos in a layout -->
         <div id="photo-container" class="photos">
 
+            <!-- Main photos -->
             <img id="photo-1" class="photos" src="images/photos/Main1.JPG" alt="Main photo of location">
 
             <img id="photo-2" class="photos" src="images/photos/Main2.JPG" alt="">
 
             <img id="photo-3" class="photos" src="images/photos/Main3.JPG" alt="">
 
+            <!-- a collection of additional photos if photo count exceeds 3. Layed out sequentially as previews  -->
             <section id="photo-prev-container" class="photo-prev-container">
 
                 <img id="photo-prev-1" class="photo-prev" src="images/photos/Main1.JPG" alt="">
@@ -63,15 +75,20 @@
                 <img id="photo-prev-6" class="photo-prev" src="images/photos/Main1.JPG" alt="">
                 <img id="photo-prev-7" class="photo-prev" src="images/photos/Main1.JPG" alt="">
                 <img id="photo-prev-8" class="photo-prev" src="images/photos/Main1.JPG" alt="">
+
+                <!-- Link that would take user to a page or model. All the photos would be listed here. Not implemented-->
                 <p class="view-photos"><a href="">View all photos</a> </p>
 
             </section>
 
+            <!-- When a photo is clicked on. It will be enlarged within a modal view -->
             <div class="photo-modal" id="photo-modal">
                 <img id="photo-large" src="images/photos/Main1.JPG" alt="">
             </div>
             <div id="overlay"></div>
         </div>
+
+        <!-- Displays information of property -->
         <div class="description-container">
             <div class="top-description">
                 <h1 id="name" class="top-description">Hostel Villa <strong>$266</strong><small>/night</small></h1>
@@ -83,8 +100,13 @@
                 </p>
             </div>
         </div>
+
+        <!-- Collection buttons -->
         <div class="btn-group">
+            <!-- button to save to list. Feature has not been implemented, but users would be able to save property they liked into a list -->
             <button class="saveToList-button">Save To List</button>
+
+            <!-- Button to book trip. Takes user to booking page were they will conclude their booking journey -->
             <button class="contact-button" onclick="window.location= 'bookingpage.html'">Book Trip</button>
         </div>
 
@@ -92,6 +114,9 @@
 </main>
 </body>
 </html>
+
+
+<!-- A calendar to display the dates available. Currently discarded. -->
 
 <!--
             <div class="calender-container">

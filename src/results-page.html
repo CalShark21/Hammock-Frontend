@@ -1,3 +1,7 @@
+<!-- Results page displays presents a card layout view of properties after a search.
+Includes a filter bar to help narrow search further
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +12,7 @@
 
 </head>
 <body>
+<!--Nav bar allows user to go back to the home page or create a new search-->
 <div class="nav-container">
     <nav id="nav-bar">
         <button class="logo-button">hammock</button>
@@ -38,10 +43,18 @@
         </ul>
     </nav>
 </div>
+
+
 <main class="main">
+
+    <!-- A divider line to separate nav bar from rest of the page -->
     <div id="divider"></div>
+
+    <!-- Filter bar to help user narrow search further -->
     <section class="filter-container">
         <h2 id="Filters">Filters</h2>
+
+        <!-- A slider to specify price range -->
         <div class="price-wrapper">
             <h3>Price</h3>
             <div class="price-input">
@@ -63,6 +76,8 @@
                 <input type="range" class="range-max" min="0" max="1000" value="700" step="10" id="filter-price-max">
             </div>
         </div>
+
+        <!-- User specifies the amount of guest by incrementing and decrementing count -->
         <div class="guest-container">
             <h3>Guest</h3>
             <div class="counter-wrapper">
@@ -77,9 +92,10 @@
                 <span id="children-num" class="num">00</span>
                 <span id="children-plus" class="plus">+</span>
             </div>
-
         </div>
 
+
+        <!-- User filters they type of properties they want by checking-in check boxes -->
         <div class="property-container">
             <h3>Property Type</h3>
             <div class="property-checkbox-wrapper">
@@ -106,6 +122,7 @@
             </div>
         </div>
 
+        <!-- User filters the amenities needed by checking-in check boxes -->
         <div class="Amenities-container">
             <h3>Amenities</h3>
             <div class="amenities-checkbox-wrapper">
@@ -132,6 +149,7 @@
             </div>
         </div>
 
+        <!-- Button resets filter settings to default settings -->
         <div class="filter-btn">
             <a href="">
                 Refresh Search
@@ -139,6 +157,8 @@
         </div>
 
     </section>
+
+    <!-- Section for property cards -->
     <section id="card-container">
     </section>
 </main>
