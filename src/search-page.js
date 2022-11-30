@@ -11,7 +11,6 @@ var createLineItem = function (item) {
 }
 
 $(searchButton).click(function () {
-    event.preventDefault();
 
     let inputLocation = searchInputLocation.value;
     let inputStartDate = searchInputStartDate.value;
