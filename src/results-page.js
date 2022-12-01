@@ -1,14 +1,18 @@
+/**
+ * Script for the Results Page. This class handles all the logic related to displaying the search results of a renter searching
+ * for a property, including building and displaying property cards (container for each individual property), connecting to the
+ * backend API, and searching or filtering by location, price, property type, number of guests, or amenities.
+ *
+ */
 
-// Our JSON object containing returned objects from search, currently just returns all objects in database
 
-
-// Search terms from Search Page, via localStorage
+// Search terms from Search Page, via browser localStorage
 let inputLocation  = localStorage.getItem('location');
 let inputStartDate = localStorage.getItem('start-date');
 let inputEndDate   = localStorage.getItem('end-date');
 let inputGuests    = localStorage.getItem('guests');
 
-// Search bar HTML elements
+// Define search bar HTML elements
 const srchBarLocation  = document.getElementById("srch-bar-location");
 const srchBarStartDate = document.getElementById("srch-bar-start-date");
 const srchBarEndDate   = document.getElementById("srch-bar-end-date");
@@ -21,8 +25,10 @@ srchBarStartDate.value = inputStartDate;
 srchBarEndDate.value = inputEndDate;
 srchBarGuests.value = inputGuests;
 
+// URL initializes Results page with properties of the type inputLocation (used in fetch call below)
 let locationFetchURL = 'http://localhost:8080/api/properties/?location=' + inputLocation;
 
+// Function for top search bar, takes values for new search and updates URL
 srchBarButton.addEventListener("click", ()=>{
     localStorage.setItem('location', srchBarLocation.value);
     localStorage.setItem('start-date', srchBarStartDate.value);
@@ -32,7 +38,7 @@ srchBarButton.addEventListener("click", ()=>{
 });
 
 
-
+// calls the API using the URL and fills in results page with returned properties
 fetch(locationFetchURL)
     .then( res => res.json())
     .then( data => buildCards(data))
@@ -61,10 +67,18 @@ function buildCards(propData) {
 function passData(propID){
     window.location.href = 'property-detailed.html' + '#' + propID;
 }
-const rangeInput = document.querySelectorAll(".range-input input"),
-    priceInput = document.querySelectorAll(".price-input input"),
-    progress = document.querySelector(".slider .progress");
 
+
+
+/**
+ *  Below are all functions and variables for the left-hand side filter bar
+ */
+// HTML elements for price slider filter
+const rangeInput = document.querySelectorAll(".range-input input"),
+      priceInput = document.querySelectorAll(".price-input input"),
+      progress = document.querySelector(".slider .progress");
+
+// HTML elements for # of guests filter
 const adultPlus = document.getElementById("adult-plus"),
     adultMinus = document.getElementById("adult-minus"),
     adultNum = document.getElementById("adult-num"),
@@ -72,16 +86,12 @@ const adultPlus = document.getElementById("adult-plus"),
     childrenMinus = document.getElementById("children-minus"),
     childrenNum = document.getElementById("children-num");
 
-// HTML elements for search functions
-const filterPriceMin = document.getElementById("filter-price-min");
-const filterPriceMax = document.getElementById("filter-price-max");
-const filterSrchBtn = document.getElementById("filter-search-btn");
 
-
-// Price slider filter API call (alled in rangeInput.forEach function below)
+// function for price slider filter (called in rangeInput.forEach function below
 function filterSearchPrice(min, max) {
 
-    var queryString = min + "," + max;
+    // builds a string as comma separated list ("minimum-price,maximum-price") parsed by the API via fetch
+    let queryString = min + "," + max;
     console.log(queryString);
 
     fetch('http://localhost:8080/api/properties?price=' + queryString)
@@ -89,13 +99,13 @@ function filterSearchPrice(min, max) {
         .then( data => buildCards(data))
 }
 
-// Property Type filter API call (
+// Function for property type filter (called by onClick attribute in checkbox HTML)
 function filterSearchType () {
-    //e.preventDefault();
 
-    var urlString = "";
-    let checkedFilters = document.querySelectorAll("input[type='checkbox']:checked");
+    let urlString = "";
+    let checkedFilters = document.querySelectorAll("input[class='checkbox-type']:checked"); // builds an array
 
+    // builds a string of property types structured as a comma separated list
     checkedFilters.forEach(function(checkbox) {
         if (checkbox.value.length !== 0 ){
             urlString += checkbox.value + ","
@@ -106,48 +116,9 @@ function filterSearchType () {
     fetch('http://localhost:8080/api/properties?type=' + urlString)
         .then( res => res.json())
         .then( data => buildCards(data))
-
-
 }
 
-
-// Check box function (for search)
-/*filterSrchBtn.addEventListener("click", ()=> {
-    //e.preventDefault();
-
-    console.log("Refresh button clicked");
-
-    var queryString = "";
-    let checkedFilters = document.querySelectorAll("input[type='checkbox']:checked");
-
-    checkedFilters.forEach(function(checkbox) {
-        if (checkbox.value.length !== 0 ){
-            queryString += checkbox.value + ","
-        }
-    });
-    console.log("Filter by: " + queryString);
-
-    fetch('http://localhost:8080/api/properties?proptype=' + queryString)
-        .then( res => res.json())
-        .then( data => buildCards(data))
-
-});*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Counter Buttons
-
 let a = 0,
     c = 0;
 
@@ -180,10 +151,8 @@ childrenMinus.addEventListener("click", ()=>{
 });
 
 
-//Price slider
-
+// Function for price slider filter
 let priceGap = 100;
-
 priceInput.forEach(input =>{
     input.addEventListener("input", e =>{
         // getting two input values and parsing them to a number
@@ -221,7 +190,7 @@ rangeInput.forEach(input =>{
             progress.style.left = (minVal / rangeInput[0].max) * 100 + "%";
             progress.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
         }
-
+        // function call passes in min and max prices and passes to API search filter function
         filterSearchPrice(rangeInput[0].value, rangeInput[1].value);
     });
 })
