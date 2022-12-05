@@ -22,6 +22,7 @@ body{
 }
 .logo-button{
     border: none;
+    font-family: 'Roboto-black', sans-serif;
     color: #008489;
     font-weight: 900;
     font-size: 36px;

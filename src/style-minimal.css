@@ -19,11 +19,13 @@
 .logo-button{
     border: none;
     color: #008489;
+    font-family: 'Roboto-black', sans-serif;
     font-weight: 900;
-    font-size: 36px;
+    font-size: 34px;
     display: inline-block;
     background: transparent;
     cursor: pointer;
+    padding: 20px;
 }
 .nav-bar{
     background: transparent;

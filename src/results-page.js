@@ -118,14 +118,42 @@ function filterSearchType () {
         .then( data => buildCards(data))
 }
 
-// Counter Buttons
+// Function for amenities filter (called by onClick attribute in checkbox HTML)
+function filterSearchAmenities () {
+
+    let urlString = "";
+    let checkedFilters = document.querySelectorAll("input[class='checkbox-amen']:checked"); // builds an array
+
+    // builds a string of amenities structured as a comma separated list
+    checkedFilters.forEach(function(checkbox) {
+        if (checkbox.value.length !== 0 ){
+            urlString += checkbox.value + ","
+        }
+    });
+    console.log("Filter by: " + urlString);
+
+    fetch('http://localhost:8080/api/properties?amenities=' + urlString)
+        .then( res => res.json())
+        .then( data => buildCards(data))
+}
+
+// Guest counter Buttons
 let a = 0,
     c = 0;
+
+function filterSearchGuests () {
+    let totalGuests = parseInt(a) + parseInt(c);
+
+    fetch('http://localhost:8080/api/properties?guests=' + totalGuests)
+        .then( res => res.json())
+        .then( data => buildCards(data))
+}
 
 adultPlus.addEventListener("click", ()=>{
     a++;
     a = (a<10) ? "0" + a : a;
     adultNum.innerText=a;
+    filterSearchGuests();
 });
 
 adultMinus.addEventListener("click", ()=>{
@@ -134,12 +162,14 @@ adultMinus.addEventListener("click", ()=>{
         a = (a<10) ? "0" + a : a;
         adultNum.innerText=a;
     }
+    filterSearchGuests();
 });
 
 childrenPlus.addEventListener("click", ()=>{
     c++;
     c = (c<10) ? "0" + c : c;
     childrenNum.innerText=c;
+    filterSearchGuests();
 });
 
 childrenMinus.addEventListener("click", ()=>{
@@ -148,6 +178,7 @@ childrenMinus.addEventListener("click", ()=>{
         c = (c<10) ? "0" + c : c;
         childrenNum.innerText=c;
     }
+    filterSearchGuests();
 });
 
 

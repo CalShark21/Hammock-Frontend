@@ -9,6 +9,7 @@ Includes a filter bar to help narrow search further
     <title>Results Page</title>
     <link rel="stylesheet" href="header-style.css">
     <link rel="stylesheet" href="results-page.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 
 </head>
 <body>
@@ -127,24 +128,28 @@ Includes a filter bar to help narrow search further
             <h3>Amenities</h3>
             <div class="amenities-checkbox-wrapper">
                 <label id="breakfast-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="breakfast-checkbox">
+                    <input class="checkbox-amen" type="checkbox" id="breakfast-checkbox" value="breakfast" onclick="filterSearchAmenities()">
                     Free Breakfast
                 </label>
                 <label id="wifi-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="wifi-checkbox">
+                    <input class="checkbox-amen" type="checkbox" id="wifi-checkbox" value="wifi" onclick="filterSearchAmenities()">
                     Free Wifi
                 </label>
                 <label id="kitchen-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="kitchen-checkbox">
+                    <input class="checkbox-amen" type="checkbox" id="kitchen-checkbox" value="kitchen" onclick="filterSearchAmenities()">
                     Kitchen
                 </label>
                 <label id="pet-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="pet-checkbox">
+                    <input class="checkbox-amen" type="checkbox" id="pet-checkbox" value="pets" onclick="filterSearchAmenities()">
                     Pet Friendly
                 </label>
                 <label id="parking-label" class="checkbox">
-                    <input class="checkbox-input" type="checkbox" id="parking-checkbox">
+                    <input class="checkbox-amen" type="checkbox" id="parking-checkbox" value ="parking" onclick="filterSearchAmenities()">
                     Free Parking
+                </label>
+                <label id="coffee-tea-label" class="checkbox">
+                    <input class="checkbox-amen" type="checkbox" id="coffee-checkbox" value ="coffee" onclick="filterSearchAmenities()">
+                    Coffee & Tea
                 </label>
             </div>
         </div>
