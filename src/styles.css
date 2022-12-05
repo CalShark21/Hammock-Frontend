@@ -485,17 +485,8 @@ body{
 /* Edit Listing Modal */
 
 .modal-edit{
-    overflow: hidden;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%) scale(0);
-    transition: 200ms ease-in-out;
-    border: 1px solid black;
-    border-radius: 10px;
-    z-index: 10;
-    background-color: white;
-    width: 500px;
+    margin: auto;
+    width: 600px;
     max-width: 80%;
 }
 .modal-edit.active{
@@ -511,14 +502,7 @@ body{
     font-size: 1.25rem;
     font-weight: bold;
 }
-.modal-edit-header .close-button{
-    cursor: pointer;
-    border: none;
-    background: none;
-    outline: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-}
+z
 .modal-edit-body{
     padding: 10px 15px;
     max-height: calc(100vh - 210px);

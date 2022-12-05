@@ -16,6 +16,7 @@ function buildCards(data) {
     <h3 style="margin-left: 3%">Properties</h3>
     ${data.map(propertyTemplate).join('')} 
 `
+    createButtonElement();
 }
 
 /**
@@ -38,11 +39,6 @@ function propertyTemplate(property){
                 <div ><textarea class="card-amenities" max maxlength="80">${property.amenities}</textarea></div>
             </div>
             <div class="card-buttons">
-                <button onclick="propertyDropdown()" class="property-dropdown">...</button>
-                <div id="propDropdown" class="prop-dropdown-content">
-                    <a data-modal-target="#modal-edit">Edit Listing</a>
-                    <a data-modal-target="#modal-delete" style="color: red">Delete Listing</a>
-                </div>
             </div>
         </div>
         <hr/>
@@ -50,61 +46,19 @@ function propertyTemplate(property){
     </li>
     `
 }
-// logic for getting the dropdown menus to work for the edit property modal
-function propertyDropdown() {
-    document.getElementById("propDropdown").classList.toggle("show");
-}
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-    if (!event.target.matches('.property-dropdown')) {
-        var dropdowns = document.getElementsByClassName("prop-dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
+function createButtonElement() {
+    var a = document.querySelectorAll(".card-buttons");
+
+    for (var v = 0; v < a.length; v++) {
+        var btn = document.createElement("button");
+
+        btn.addEventListener('click',function(){
+            window.location = 'property-detailed.html';
+        });
+        btn.appendChild(document.createTextNode("Edit/Delete"));
+        a[v].appendChild(btn);
     }
-}
-
-//Modal for edit/delete listing
-const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
-const overlay = document.getElementById('overlay')
-
-openModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = document.querySelector(button.dataset.modalTarget)
-        openModal(modal)
-    })
-})
-
-overlay.addEventListener('click', () => {
-    const modals = document.querySelectorAll('.modal-edit.active,.modal-delete.active')
-    modals.forEach(modal => {
-        closeModal(modal)
-    })
-})
-
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const modal = button.closest('.modal-edit,.modal-delete')
-        closeModal(modal)
-    } )
-})
-
-function openModal(modal){
-    if (modal == null) return
-    modal.classList.add('active')
-    overlay.classList.add('active')
-}
-
-function closeModal(modal){
-    if (modal == null) return
-    modal.classList.remove('active')
-    overlay.classList.remove('active')
 }
 
 //adds a collapsible section for each form section, to make it easier to look at
