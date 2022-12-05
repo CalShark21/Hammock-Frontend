@@ -502,13 +502,12 @@ body{
     font-size: 1.25rem;
     font-weight: bold;
 }
-z
-.modal-edit-body{
+#modal-edit-body{
     padding: 10px 15px;
     max-height: calc(100vh - 210px);
     overflow-y: auto;
 }
-.modal-edit-body input[type=text]{
+#modal-edit-body input[type=text]{
     font-size: 12px;
     width: 90%;
     padding: 10px 5px;
@@ -517,7 +516,7 @@ z
     border-radius: 5px;
     background-color: white;
 }
-.modal-edit-body form select{
+#modal-edit-body form select{
     cursor: pointer;
     font-size: 10px;
     width: 93%;
@@ -527,17 +526,17 @@ z
     background-color: rgba(1, 211, 219,0.15);
     outline: none;
 }
-.modal-edit-body li{
+#modal-edit-body li{
     display: flex;
 }
-.modal-edit-body textarea{
+#modal-edit-body textarea{
     height: 200px;
     width: 95%;
     resize: none;
     border: 1px solid rgba(0, 132, 137,0.7);
     border-radius: 10px;
 }
-.modal-edit-body button{
+#modal-edit-body button{
     margin-left: 5px;
     margin-right: 5px;
     display: inline-block;
@@ -547,7 +546,7 @@ z
     border-radius: 10px;
     font-weight: bold;
 }
-.modal-edit-body .guest-counters{
+#modal-edit-body .guest-counters{
     height: 100px;
 }
 .collapsible {

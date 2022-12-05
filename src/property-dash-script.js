@@ -37,6 +37,7 @@ function propertyTemplate(property){
                 <div class="card-info" style="opacity: 50%;">${property.guests} guest-${property.beds} bed-${property.baths} bath</div>
                 <div><textarea class="card-description" maxlength="160" readonly>${property.description}</textarea></div>
                 <div ><textarea class="card-amenities" max maxlength="80">${property.amenities}</textarea></div>
+                <button onclick= edit(${property.id})>testing</button>
             </div>
             <div class="card-buttons">
             </div>
@@ -45,6 +46,10 @@ function propertyTemplate(property){
         </div>
     </li>
     `
+}
+
+function edit(id){
+    window.location.href = "property-edit.html#" + id;
 }
 
 function createButtonElement() {
