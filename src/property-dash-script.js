@@ -16,7 +16,6 @@ function buildCards(data) {
     <h3 style="margin-left: 3%">Properties</h3>
     ${data.map(propertyTemplate).join('')} 
 `
-    createButtonElement();
 }
 
 /**
@@ -37,9 +36,10 @@ function propertyTemplate(property){
                 <div class="card-info" style="opacity: 50%;">${property.guests} guest-${property.beds} bed-${property.baths} bath</div>
                 <div><textarea class="card-description" maxlength="160" readonly>${property.description}</textarea></div>
                 <div ><textarea class="card-amenities" max maxlength="80">${property.amenities}</textarea></div>
-                <button onclick= edit(${property.id})>testing</button>
+                
             </div>
             <div class="card-buttons">
+                <button onclick= edit(${property.id})>Edit/Delete</button>
             </div>
         </div>
         <hr/>
@@ -50,20 +50,6 @@ function propertyTemplate(property){
 
 function edit(id){
     window.location.href = "property-edit.html#" + id;
-}
-
-function createButtonElement() {
-    var a = document.querySelectorAll(".card-buttons");
-
-    for (var v = 0; v < a.length; v++) {
-        var btn = document.createElement("button");
-
-        btn.addEventListener('click',function(){
-            window.location = 'property-detailed.html';
-        });
-        btn.appendChild(document.createTextNode("Edit/Delete"));
-        a[v].appendChild(btn);
-    }
 }
 
 //adds a collapsible section for each form section, to make it easier to look at

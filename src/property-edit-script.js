@@ -146,7 +146,7 @@ function propertyTemplate(property){
         });
     }
 }
-const postURL = 'http://localhost:8080/api/properties/' + propID;
+const propURL = 'http://localhost:8080/api/properties/' + propID;
 
 function updateProperty(){
     buildForm();
@@ -156,7 +156,7 @@ function updateProperty(){
     const json = JSON.stringify(object);
 
     // FetchAPI takes the form information and sends it along to our HammockAPI, which then posts the data to the database, the user is then directed to property-dashboard.html
-    fetch(postURL,{
+    fetch(propURL,{
         method: "PUT",
         headers: {
             'Content-Type': 'application/json',
@@ -200,40 +200,77 @@ function buildForm(){
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
-
 openModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         const modal = document.querySelector(button.dataset.modalTarget)
         openModal(modal)
     })
 })
-
 overlay.addEventListener('click', () => {
     const modals = document.querySelectorAll('.modal-edit.active,.modal-delete.active')
     modals.forEach(modal => {
         closeModal(modal)
     })
 })
-
 closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
         const modal = button.closest('.modal-edit,.modal-delete')
         closeModal(modal)
     } )
 })
-
 function openModal(modal){
     if (modal == null) return
     modal.classList.add('active')
     overlay.classList.add('active')
 }
-
 function closeModal(modal){
     if (modal == null) return
     modal.classList.remove('active')
     overlay.classList.remove('active')
 }
 
+
 function deleteProperty(){
-    window.location.href = "property-dashboard.html";
+    // FetchAPI deletes the property from the database
+    fetch(propURL,{
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+        .then(res => res.text())
+        .then(text => {
+            console.log(text);
+            window.location.href = 'property-dashboard.html';
+        })
+        .catch(err => console.log(err))
 }
+
+function guestClick(click){
+    const totalClicks = document.getElementById('cnt-guest');
+    const sumvalue = parseInt(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+function bedClick(click){
+    const totalClicks = document.getElementById('cnt-bed');
+    const sumvalue = parseInt(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+function bathClick(click){
+    const totalClicks = document.getElementById('cnt-bath');
+    const sumvalue = parseFloat(totalClicks.innerText) + click;
+    console.log(sumvalue + click);
+    totalClicks.innerText = sumvalue;
+    if(sumvalue < 0){
+        totalClicks.innerText = 0;
+    }
+}
+

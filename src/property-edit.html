@@ -37,17 +37,16 @@
         </ul>
     </nav>
 </div>
-
 <div class="modal-edit" id="modal-edit">
     <div class="modal-edit-header">
-        <div class="modal-edit-title" style="font-size: 28px; margin: auto;">
-            <p>Edit your Listing</p>
-        </div>
+    <div class="modal-edit-title" style="font-size: 28px; margin: auto;">
+        <p>Edit your Listing</p>
     </div>
+</div>
     <div id="modal-edit-body"></div>
 </div>
-<div>
-    <button data-modal-target="#modal-delete">delete</button>
+<div style="position: absolute;left: 40%;">
+    <button class="delete-button" data-modal-target="#modal-delete">Remove Listing</button>
 </div>
 <div class="modal-delete" id="modal-delete">
     <div class="modal-delete-header">
@@ -63,6 +62,7 @@
         </form>
     </div>
 </div>
+<div id="overlay"></div>
 <script src = "property-edit-script.js"></script>
 </body>
 </html>
