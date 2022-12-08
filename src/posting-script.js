@@ -147,7 +147,6 @@ function guestClick(click){
         totalClicks.innerText = 0;
     }
 }
-
 function bedClick(click){
     const totalClicks = document.getElementById('cnt-bed');
     const sumvalue = parseInt(totalClicks.innerText) + click;

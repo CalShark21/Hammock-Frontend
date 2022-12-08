@@ -87,7 +87,6 @@ function propertyTemplate(property){
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
-
 // function call to open the modal when the user clicks on the "confirm and book" button
 openModalButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -95,7 +94,6 @@ openModalButtons.forEach(button => {
         openModal(modal)
     })
 })
-
 // function call to activate the overlay when the modal opens
 overlay.addEventListener('click', () => {
     const modals = document.querySelectorAll('.modal.active')
@@ -103,7 +101,6 @@ overlay.addEventListener('click', () => {
         closeModal(modal)
     })
 })
-
 // function call to close the modal when the user clicks outside of the modal or clicks the "X" button
 closeModalButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -111,14 +108,12 @@ closeModalButtons.forEach(button => {
         closeModal(modal)
     } )
 })
-
 // opens the modal by adding the class 'active' to the modal div
 function openModal(modal){
     if (modal == null) return
     modal.classList.add('active')
     overlay.classList.add('active')
 }
-
 // closes the modal by removing the class 'active' to the modal div
 function closeModal(modal){
     if (modal == null) return
