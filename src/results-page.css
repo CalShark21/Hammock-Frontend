@@ -31,6 +31,21 @@ main{
     box-shadow: 2px 2px #88888850;
 }
 
+.filter-container h2 {
+
+    font-family: 'Roboto-black', sans-serif;
+    font-size: 24px;
+    padding-bottom: 3px;
+
+}
+
+.filter-container h3 {
+
+    font-family: 'Roboto-light',sans-serif;
+    font-size: 18px;
+
+}
+
 #Filters{
     width: 160px;
     border-bottom-style: solid;
